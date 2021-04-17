@@ -20,15 +20,16 @@ public class DepositoService {
 		
 		try {
 			PreparedStatement pstmt = connection
-					.prepareStatement("INSERT INTO deposito (nome, latitude, longitude, actualizado_em) values (?, ?, ?, ?)");
+					.prepareStatement("INSERT INTO deposito (descricao, bairro, rua, email, telefone, longitude, latitude) values (?, ?, ?, ?, ?, ?, ?)");
 			
-			pstmt.setString(1, deposito.getNome());
-			pstmt.setString(2, deposito.getLatitude());
-			pstmt.setString(3, deposito.getLongitude());
-			Date data = new Date();
-			java.sql.Timestamp  timeStamp = new java.sql.Timestamp(data.getTime());
-			pstmt.setTimestamp(4, timeStamp);
-			
+			pstmt.setString(1, deposito.getDescricao());
+			pstmt.setString(2, deposito.getBairro());
+			pstmt.setString(3, deposito.getRua());
+			pstmt.setString(4, deposito.getEmail());
+			pstmt.setString(5, deposito.getTelefone());
+			pstmt.setString(6, deposito.getLongitude());
+			pstmt.setString(7, deposito.getLatitude());
+					
 			pstmt.executeUpdate();
 			
 			pstmt.close();
@@ -50,17 +51,16 @@ public class DepositoService {
 						
 					try {
 						PreparedStatement pstmt = connection
-								.prepareStatement("UPDATE deposito SET nome=?, latitude=?,longitude=?,latitude=?, actualizado_em=? WHERE id_funcionario="+deposito.getId_deposito());
+								.prepareStatement("UPDATE deposito SET descricao=?, bairro=?, rua=?, email=?, telefone=?, longitude=?, latitude=? WHERE id_deposito="+deposito.getId_deposito());
 						
-						pstmt.setString(1, deposito.getNome());
-						pstmt.setString(2, deposito.getLatitude());
-						pstmt.setString(3, deposito.getLongitude());
-						
-						Date data = new Date();
-						java.sql.Timestamp  timeStamp = new java.sql.Timestamp(data.getTime());
-						pstmt.setTimestamp(9, timeStamp);
-						pstmt.setInt(10, deposito.getId_deposito());
-						
+						pstmt.setString(1, deposito.getDescricao());
+						pstmt.setString(2, deposito.getBairro());
+						pstmt.setString(3, deposito.getRua());
+						pstmt.setString(4, deposito.getEmail());
+						pstmt.setString(5, deposito.getTelefone());
+						pstmt.setString(6, deposito.getLongitude());
+						pstmt.setString(7, deposito.getLatitude());
+											
 						pstmt.executeUpdate();
 						
 						pstmt.close();
@@ -88,7 +88,12 @@ public class DepositoService {
 				while (rs.next()){
 					Deposito deposito = new Deposito();
 					
-					deposito.setNome(rs.getString("nome"));
+					deposito.setId_deposito(rs.getInt("id_deposito"));
+					deposito.setDescricao(rs.getString("descricao"));
+					deposito.setBairro(rs.getString("bairro"));
+					deposito.setRua(rs.getString("rua"));
+					deposito.setEmail(rs.getString("email"));
+					deposito.setTelefone(rs.getString("telefone"));
 					deposito.setLatitude(rs.getString("latitude"));
 					deposito.setLongitude(rs.getString("longitude"));
 										
@@ -128,7 +133,7 @@ public class DepositoService {
 		}
 		
 		//------------------------------------------------------------------------------------------------------------------------
-		// MÉTODO PARA BUSCAR FUNCIONARIO POR ID NA BASE DE DADOS!
+		// MÉTODO PARA BUSCAR DEPOSITO POR ID NA BASE DE DADOS!
 		
 		public Deposito buscarDepositoPorId (int id_deposito){
 			Connection  connection = ConnectionFactory.getConnection();
@@ -142,7 +147,12 @@ public class DepositoService {
 				while (rs.next()){
 					Deposito deposito = new Deposito();
 					
-					deposito.setNome(rs.getString("nome"));
+					deposito.setId_deposito(rs.getInt("id_deposito"));
+					deposito.setDescricao(rs.getString("descricao"));
+					deposito.setBairro(rs.getString("bairro"));
+					deposito.setRua(rs.getString("rua"));
+					deposito.setEmail(rs.getString("email"));
+					deposito.setTelefone(rs.getString("telefone"));
 					deposito.setLatitude(rs.getString("latitude"));
 					deposito.setLongitude(rs.getString("longitude"));
 																					
