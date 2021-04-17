@@ -16,8 +16,8 @@ import Model.Deposito;
 @WebServlet("/depositoListar")
 public class DepositoListarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Deposito deposito;
-    DepositoService depositoService;
+	 Deposito deposito = new Deposito();
+     DepositoService depositoService = new DepositoService();
    
     public DepositoListarServlet() {
         super();
@@ -26,7 +26,7 @@ public class DepositoListarServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("depositoListar.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/depositoListar.jsp");
 		request.setAttribute("listaDepositos", depositoService.listarDepositos());
 		requestDispatcher.forward(request, response);
 

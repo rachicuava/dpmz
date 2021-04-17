@@ -14,8 +14,8 @@ import Model.Deposito;
 @WebServlet("/depositoCadastrar")
 public class DepositoCadastrarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       Deposito deposito;
-       DepositoService depositoService;
+       Deposito deposito = new Deposito();
+       DepositoService depositoService = new DepositoService();
    
     public DepositoCadastrarServlet() {
         super();
@@ -34,6 +34,7 @@ public class DepositoCadastrarServlet extends HttpServlet {
 		deposito.setLatitude(request.getParameter("latitude"));
 		
 		depositoService.adicionarDeposito(deposito);
+		response.sendRedirect("depositoListar");
 		
 	}
 

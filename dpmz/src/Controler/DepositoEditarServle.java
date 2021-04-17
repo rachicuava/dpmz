@@ -15,8 +15,8 @@ import Model.Deposito;
 @WebServlet("/depositoEditar")
 public class DepositoEditarServle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Deposito deposito;
-    DepositoService depositoService;
+	 Deposito deposito = new Deposito();
+     DepositoService depositoService = new DepositoService();
     
     public DepositoEditarServle() {
         super();
@@ -24,6 +24,7 @@ public class DepositoEditarServle extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		int id_deposito = Integer.valueOf(request.getParameter("id_deposito"));
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("depositoEditar.jsp");
 		request.setAttribute("deposito", depositoService.buscarDepositoPorId(id_deposito));
@@ -44,6 +45,7 @@ public class DepositoEditarServle extends HttpServlet {
 		deposito.setLatitude(request.getParameter("latitude"));
 		
 		depositoService.actuaizarFuncionario(deposito);
+		 response.sendRedirect("depositoListar");
 	}
 
 }

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -80,10 +81,10 @@ public class DepositoService {
 			List<Deposito> listaDeDepositos = new ArrayList<>();
 			Connection  connection = ConnectionFactory.getConnection();
 			try {
-				PreparedStatement pstmt = connection
-						.prepareStatement("SELECT * FROM deposito");
+				Statement statement = connection.createStatement();
+				statement.execute("SELECT * FROM deposito");
 				
-				ResultSet rs = pstmt.getResultSet();
+				ResultSet rs = statement.getResultSet();
 				
 				while (rs.next()){
 					Deposito deposito = new Deposito();
@@ -99,17 +100,18 @@ public class DepositoService {
 										
 					listaDeDepositos.add(deposito);
 					
-					rs.close();
-					pstmt.close();
-					connection.close();
-					
 				}
+				
+				rs.close();
+				statement.close();
+				connection.close();
+				return listaDeDepositos;
 				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 				
-			return listaDeDepositos;
+			return null;
 		}
 		
 		
@@ -139,10 +141,10 @@ public class DepositoService {
 			Connection  connection = ConnectionFactory.getConnection();
 			
 			try {
-				PreparedStatement pstmt = connection
-						.prepareStatement("SELECT * FROM deposito WHERE id_deposito="+id_deposito);
+				Statement statement = connection.createStatement();
+				statement.execute("SELECT * FROM deposito");
 				
-				ResultSet rs = pstmt.getResultSet();
+				ResultSet rs = statement.getResultSet();
 				
 				while (rs.next()){
 					Deposito deposito = new Deposito();
@@ -157,9 +159,10 @@ public class DepositoService {
 					deposito.setLongitude(rs.getString("longitude"));
 																					
 					rs.close();
-					pstmt.close();
+					statement.close();
 					connection.close();
 					
+					return deposito;
 				}
 				
 			} catch (Exception e) {
