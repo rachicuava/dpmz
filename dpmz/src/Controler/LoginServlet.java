@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DTO.FuncionarioService;
+
 import DTO.UsuarioService;
-import Model.Funcionario;
 import Model.Usuario;
 
 

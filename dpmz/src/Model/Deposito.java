@@ -1,6 +1,5 @@
 package Model;
 
-import java.sql.Date;
 
 public class Deposito {
 	private int id_deposito;
