@@ -59,13 +59,13 @@
 			      </a>
 		      	
 			     	<%
-		      		System.out.println(nivel);
 		      		if (nivel.equals("admin")){
 		      			%>
 		      			<a class="nav-link" href="usuarioListar">Usuários</a>
 		      			<a class="nav-link" href="depositoListar">Depósitos</a>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 		      			<a class="nav-link" href="viagemListar">Viagens</a>
 		      		<% 
 		      		
@@ -73,6 +73,7 @@
 		      			%>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 				        <a class="nav-link" href="viagemListar">Viagens</a>
 				     <% 
 		      		}else if(nivel.equals("Motorista")){
@@ -117,7 +118,7 @@
 		    </div>
 	      
 			<div class="container">
-				<h2><b>Actualizar Funcionário</b></h2>
+				<h2><b>Actualizar Funcionário: </b>${funcionario.nome} ${funcionario.apelido}</h2>
 				
 					<br>
 					
@@ -155,7 +156,7 @@
 						    <div class="col">
 						      <label for="categoria">Género:</label>
 							      <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="sexo" value="${funcionario.sexo}">
-							        <option selected>Selecione o género</option>
+							        <option selected></option>
 							        <option value="Femenino">Femenino</option>
 							        <option value="Masculino">Masculino</option>
 							      </select>
@@ -174,7 +175,7 @@
 							<div class="col">
 						    	<label for="categoria">Categoria profissional:</label>
 							      <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="categoria" value="${funcionario.categoria}">
-							        <option selected>Selecione a categoria</option>
+							        <option selected></option>
 							        <option value="Técnico Superior de Farmácia">Técnico Superior de Farmácia</option>
 							        <option value="Técnico de Farmácia">Técnico de Farmácia</option>
 							        <option value="Técnico de Medicina Preventiva">Técnico de Medicina Preventiva</option>
@@ -209,7 +210,7 @@
 						    <div class="col">
 						    	<label for="distrito">Distrito:</label>
 							      <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="distrito" value="${funcionario.distrito}">
-							        <option selected>Selecione o distrito</option>
+							        <option selected></option>
 							        <option value="Alto Molocué">Alto Molocué</option>
 							        <option value="Chinde">Chinde</option>
 							        <option value="Cidade de Quelimane">Cidade de Quelimane</option>

@@ -6,11 +6,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<meta http-equiv="Content-Type" content="width=device-width, initial-scale=1" name="viewport">
-		
+		<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     	
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">    	  
+    	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">    	   
 		<title>SGTM-DPSZ</title>
 		
 		<script>
@@ -57,7 +57,8 @@
 					  <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
 					</svg>
 			      </a>
-		      		<%
+		      	
+			     	<%
 		      		if (nivel.equals("admin")){
 		      			%>
 		      			<a class="nav-link" href="usuarioListar">Usuários</a>
@@ -117,74 +118,78 @@
 		    </div>
 	      
 			<div class="container">
-				<h2><b>Cadastro de Funcionário</b></h2>
+				<h2><b>Actualizar Motorista: </b>${motorista.nome} ${motorista.apelido}</h2>
 				
 					<br>
 					
-					<form action="funcionarioCadastrar" method="post">
+					
+										
+					<form action="motoristaEditar" method="post">
 							      
 				        <div class="row">
 						    <div class="col">
-						      <input type="text" name="nome" class="form-control" required placeholder="Nome">
+						    	<label for="id">ID:</label>
+						      <input type="text" name="id_motorista" class="form-control" readonly="readonly" value="${motorista.id_motorista}">
 						    </div>
-						    
 						    <div class="col">
-						      <input type="text" name="apelido" class="form-control" required placeholder="Apelido">
 						    </div>
-						    
 						    <div class="col">
-						      <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="sexo">
-						        <option selected>[Selecione o género]</option>
-						        <option value="Femenino">Femenino</option>
-						        <option value="Masculino">Masculino</option>
-						      </select>
-							 </div>
+						    </div>
+						    <div class="col">
+						    </div>
+						    <div class="col">
+						    </div>
 						</div>
-						
-						<br>
 						
 				        <div class="row">
+				        
 						    <div class="col">
-						      <label for="data de nascimento">Data de nascimento:</label>
-						      <input type="date" name="data_nascimento"  data-date-format="dd/MM/yyyy" class="form-control" placeholder="dd-MM-yyyy">
+						    <label for="nome">Nome:</label>
+						      <input type="text" name="nome" class="form-control" required value="${motorista.nome}">
 						    </div>
 						    
 						    <div class="col">
-						    	<label for="categoria">Categoria profissional:</label>
-							      <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="categoria">
-							        <option selected>Selecione a categoria</option>
-							        <option value="Técnico Superior de Farmácia">Técnico Superior de Farmácia</option>
-							        <option value="Técnico de Farmácia">Técnico de Farmácia</option>
-							        <option value="Técnico de Medicina Preventiva">Técnico de Medicina Preventiva</option>
-							        <option value="Enfermeiro Geral">Enfermeiro Geral</option>
-							        <option value="Motorista">Motorista</option>
-							    </select>
+						    <label for="apelido">Apelido:</label>
+						      <input type="text" name="apelido" class="form-control" required value="${motorista.apelido}">
 						    </div>
 						    
 						    <div class="col">
-				       		<label for="nuit">NUIT:</label>
-						      <input type="text" name="nuit" required class="form-control" placeholder="12346789">
-						    </div>
+						      <label for="categoria">Género:</label>
+							      <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="sexo" value="${motorista.sexo}">
+							        <option selected></option>
+							        <option value="Femenino">Femenino</option>
+							        <option value="Masculino">Masculino</option>
+							      </select>
+							 </div>
+							 
 						</div>
 						
-						<br>
+					   <br>
 										        
 						 <div class="row"> 
+							 <div class="col">
+						      <label for="data de nascimeto">Data de nascimento:</label>
+						      <input type="date" name="data_nascimento"  data-date-format="dd/MM/yyyy" class="form-control" value="${motorista.data_nascimento}">
+						    </div>
+						    
 						    <div class="col">
-				       		    <input type="email" name="email" required class="form-control" placeholder="nome@exemplo.com">
+						        <label for="email">Email:</label>
+				       		    <input type="email" name="email" required class="form-control" value="${motorista.email}">
 						    </div>
 					        <div class="col">
-				       		    <input type="text" name="telefone" required class="form-control" placeholder="+258">
+					        	<label for="telefone">Telefone:</label>
+				       		    <input type="text" name="telefone" required class="form-control" value="${motorista.telefone}">
 						    </div>
 						 </div> 
 						 
 						 <br>
-						 
-						 <label for="morada">Morada</label>
-						 <div class="row"> 
+					   
+					   <label for="morada">Morada:</label>
+				        <div class="row">
 						    <div class="col">
-				       		     <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="distrito">
-							        <option selected>Selecione o distrito</option>
+						    	<label for="distrito">Distrito:</label>
+							      <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="distrito" value="${motorista.distrito}">
+							        <option selected></option>
 							        <option value="Alto Molocué">Alto Molocué</option>
 							        <option value="Chinde">Chinde</option>
 							        <option value="Cidade de Quelimane">Cidade de Quelimane</option>
@@ -209,37 +214,41 @@
 							        <option value="Pebane">Pebane</option>
 							    </select>
 						    </div>
-					        <div class="col">
-				       		    <input type="text" name="bairro" required class="form-control" placeholder="Bairro">
+						    
+						    <div class="col">
+						    	<label for="bairro">Bairro:</label>
+				       		    <input type="text" name="bairro" required class="form-control" value="${motorista.bairro}">
 						    </div>
 						    <div class="col">
-				       		    <input type="text" name="rua" required class="form-control" placeholder="Rua">
+						    	<label for="rua">Rua:</label>
+				       		    <input type="text" name="rua" required class="form-control" value="${motorista.rua}">
 						    </div>
-						 </div> 
 						   
+						</div> 
 				        
-				        <hr>
+				      <hr>
+				      
 				      <div>
-				        <button type="reset" class="btn btn-outline-warning" >
-				       		<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
+					      <a class="btn btn-outline-warning" href="motoristaListar" role="button">
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
 							  <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1L1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
 							  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 							</svg>
-				       	 Limpar
-				        </button>
+							Cancelar				
+						</a>
 				        
 				        <button type="submit" class="btn btn-outline-success">
 				        	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-save2" viewBox="0 0 16 16">
 							  <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
 							</svg>
-				        	Gravar
+				        	Actualizar
 				        </button>
 				      </div>
 				      					
-			  </form>
-			</div>
-	
-			
+		  </form>
+		</div>
+
+		
 		
 		
 		

@@ -46,7 +46,7 @@ public class EncomendaService {
 
 		try {
 			PreparedStatement pstmt = connection.prepareStatement(
-					"UPDATE encomenda SET descricao=?, data=?, veiculo_id_veiculo=?  WHERE id_deposito="
+					"UPDATE encomenda SET descricao=?, data=?, veiculo_id_veiculo=?  WHERE id_encomenda="
 							+ encomenda.getId_encomenda());
 
 			pstmt.setString(1, encomenda.getDescricao());
@@ -74,7 +74,7 @@ public class EncomendaService {
 		try {
 			Statement statement = connection.createStatement();
 			statement.execute(
-					"SELECT e.id_encomenda, e.descricao, v.id_veiculo, v.modelo, v.fabricante, v.ano_fabrico, v.tipo, v.capacidade, v.matricula FROM sgtm_dpmz.encomenda e INNER JOIN sgtm_dpmz.veiculo v ON e.veiculo_id_veiculo = v.id_veiculo");
+					"SELECT e.id_encomenda, e.descricao, e.data, v.id_veiculo, v.modelo, v.fabricante, v.ano_fabrico, v.tipo, v.capacidade, v.matricula FROM sgtm_dpmz.encomenda e INNER JOIN sgtm_dpmz.veiculo v ON e.veiculo_id_veiculo = v.id_veiculo ORDER BY e.data ASC");
 
 			ResultSet rs = statement.getResultSet();
 
@@ -92,6 +92,7 @@ public class EncomendaService {
 				Encomenda encomenda = new Encomenda();
 				encomenda.setId_encomenda(rs.getInt("e.id_encomenda"));
 				encomenda.setDescricao(rs.getString("e.descricao"));
+				encomenda.setData(rs.getDate("e.data"));
 				encomenda.setVeiculo(veiculo);
 
 				listaDeEncomendas.add(encomenda);
@@ -109,6 +110,52 @@ public class EncomendaService {
 		return null;
 
 	}
+	
+	// ------------------------------------------------------------------------------------------------------------------------------
+		// MÉTODO PARA LISTAR TODOS ENCOMENDAS NA BASE DE DADOS!
+		public List<Encomenda> listarEncomendaPorData(Date inicio, Date fim) {
+			List<Encomenda> listaDeEncomendas = new ArrayList<>();
+			Connection connection = ConnectionFactory.getConnection();
+
+			try {
+				Statement statement = connection.createStatement();
+				statement.execute(
+						"SELECT e.id_encomenda, e.descricao, e.data, v.id_veiculo, v.modelo, v.fabricante, v.ano_fabrico, v.tipo, v.capacidade, v.matricula FROM sgtm_dpmz.encomenda e INNER JOIN sgtm_dpmz.veiculo v ON e.veiculo_id_veiculo = v.id_veiculo WHERE  e.data BETWEEN '"+inicio+"' AND '"+fim+"' ORDER BY e.data ASC");
+
+				ResultSet rs = statement.getResultSet();
+
+				while (rs.next()) {
+
+					Veiculo veiculo = new Veiculo();
+					veiculo.setId_veiculo(rs.getInt("v.id_veiculo"));
+					veiculo.setModelo(rs.getString("v.modelo"));
+					veiculo.setFabricante(rs.getString("v.fabricante"));
+					veiculo.setAno_fabrico(rs.getInt("v.ano_fabrico"));
+					veiculo.setTipo(rs.getString("tipo"));
+					veiculo.setCapacidade(rs.getString("v.capacidade"));
+					veiculo.setMatricula(rs.getString("v.matricula"));
+
+					Encomenda encomenda = new Encomenda();
+					encomenda.setId_encomenda(rs.getInt("e.id_encomenda"));
+					encomenda.setDescricao(rs.getString("e.descricao"));
+					encomenda.setData(rs.getDate("e.data"));
+					encomenda.setVeiculo(veiculo);
+
+					listaDeEncomendas.add(encomenda);
+				}
+
+				rs.close();
+				statement.close();
+				connection.close();
+
+				return listaDeEncomendas;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return null;
+
+		}
 
 	// ------------------------------------------------------------------------------------------------------------------------------
 	// MÉTODO PARA EXCLUIR TODOS ENCOMENDAS NA BASE DE DADOS!
@@ -144,20 +191,9 @@ public class EncomendaService {
 			
 			while (rs.next()) {
 
-				Veiculo veiculo = new Veiculo();
-				veiculo.setId_veiculo(rs.getInt("v.id_veiculo"));
-				veiculo.setModelo(rs.getString("v.modelo"));
-				veiculo.setFabricante(rs.getString("v.fabricante"));
-				veiculo.setAno_fabrico(rs.getInt("v.ano_fabrico"));
-				veiculo.setTipo(rs.getString("tipo"));
-				veiculo.setCapacidade(rs.getString("v.capacidade"));
-				veiculo.setMatricula(rs.getString("v.matricula"));
-
-				encomenda.setId_encomenda(rs.getInt("e.id_encomenda"));
-				encomenda.setDescricao(rs.getString("e.descricao"));
-				encomenda.setVeiculo(veiculo);
-
-
+				encomenda.setId_encomenda(rs.getInt("id_encomenda"));
+				encomenda.setDescricao(rs.getString("descricao"));
+				
 			}
 
 			rs.close();

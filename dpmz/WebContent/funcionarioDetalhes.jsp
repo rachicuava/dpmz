@@ -60,13 +60,13 @@
 			      </a>
 		      	
 			     	<%
-		      		System.out.println(nivel);
 		      		if (nivel.equals("admin")){
 		      			%>
 		      			<a class="nav-link" href="usuarioListar">Usuários</a>
 		      			<a class="nav-link" href="depositoListar">Depósitos</a>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 		      			<a class="nav-link" href="viagemListar">Viagens</a>
 		      		<% 
 		      		
@@ -74,6 +74,7 @@
 		      			%>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 				        <a class="nav-link" href="viagemListar">Viagens</a>
 				     <% 
 		      		}else if(nivel.equals("Motorista")){
@@ -118,7 +119,7 @@
 		    </div>
 	      
 			<div class="container">
-				<h2><b>Detalhes do Funcionário</b></h2>
+				<h2><b>Detalhes do Funcionário: </b>${funcionario.nome} ${funcionario.apelido}</h2>
 				
 				<br>
 			<div>  

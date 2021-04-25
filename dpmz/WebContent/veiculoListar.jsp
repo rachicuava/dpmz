@@ -60,13 +60,13 @@
 			      </a>
 		      	
 			     	<%
-		      		System.out.println(nivel);
 		      		if (nivel.equals("admin")){
 		      			%>
 		      			<a class="nav-link" href="usuarioListar">Usuários</a>
 		      			<a class="nav-link" href="depositoListar">Depósitos</a>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 		      			<a class="nav-link" href="viagemListar">Viagens</a>
 		      		<% 
 		      		
@@ -74,6 +74,7 @@
 		      			%>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 				        <a class="nav-link" href="viagemListar">Viagens</a>
 				     <% 
 		      		}else if(nivel.equals("Motorista")){
@@ -142,7 +143,6 @@
 				      <th>Tipo</th>
 				      <th>Capacidade</th>
 				      <th>Matrícula</th>
-				      <th align="center">Associar</th>
 				      <th align="center">Acções</th>
 				    </tr>
 				  </thead>
@@ -154,11 +154,6 @@
 					      <th>${veiculo.tipo}</th>
 					      <th>${veiculo.capacidade}</th>
 					      <th>${veiculo.matricula}</th>
-					      <th>
-							   <a href="encomendaCadastrar?id_veiculo=${veiculo.id_veiculo}">Encomenda</a>
-							   	&nbsp;|&nbsp;
-							   <a href="viagemCadastrar?id_veiculo=${veiculo.id_veiculo}">Viagem</a>
-						   </th>
 					      <td>
 					      	
 							<a href="veiculoDetalhes?id_veiculo=${veiculo.id_veiculo}">

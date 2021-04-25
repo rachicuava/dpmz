@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -11,7 +10,8 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     	
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">    	   
+    	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">
+    	    	   
 		<title>SGTM-DPSZ</title>
 		
 		<script>
@@ -58,8 +58,7 @@
 					  <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
 					</svg>
 			      </a>
-		      	
-			     	<%
+		      	<%
 		      		if (nivel.equals("admin")){
 		      			%>
 		      			<a class="nav-link" href="usuarioListar">Usuários</a>
@@ -119,52 +118,82 @@
 		    </div>
 	      
 			<div class="container">
-				<h2><b>Detalhes do Veículo: </b>${veiculo.fabricante} ${veiculo.modelo}</h2>
+				<h2><b>Actualização de Encomenda</b></h2>
 				
-				<br>
-			<div>  
-		        <a class="btn btn-outline-dark" href="veiculoListar" role="button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
-					  <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
-					</svg>
-					Voltar				
-				</a>
-			</div>  
-			<br>
-			<div> 
-				<table border="0">
-						<tr>
-							<th><label for="id_funcionario">ID</label></th>
-								<td><input type="text" name="id_veiculo" readonly="readonly" class="form-control" value="${veiculo.id_veiculo}"></td>
-							</tr>
-						<tr>
-							<th><label for="nome">Fabricante:</label></th>
-								<td><input type="text" name="fabricante" readonly="readonly" class="form-control" value="${veiculo.fabricante}"></td>
-						</tr>
-						<tr>
-							<th><label for="apelido">Modelo:</label></th>
-							<td><input type="text" name="modelo" readonly="readonly" class="form-control" value="${veiculo.modelo}"></td>
-						</tr>
-						<tr>
-							<th><label for="sexo">Tipo:</label></th>
-							<td><input type="text" name="tipo" readonly="readonly" class="form-control" value="${veiculo.tipo}"></td>
-						</tr>
-						<tr>
-							<th><label for="data_nascimento">Capacidade:</label></th>
-							<td><input type="text" name="capacidade" readonly="readonly" class="form-control" value="${veiculo.capacidade}"></td>
-						</tr>
-						<tr>
-							<th><label for="categoria">Matrícula:</label></th>
-							<td><input type="text" name="matricula" readonly="readonly" class="form-control" value="${veiculo.matricula}"></td>
-						</tr>
-						<tr>
-							<th><label for="local_trabalho">Ano de fabrico:</label></th>
-							<td><input type="text" name="ano_fabrico" readonly="readonly" class="form-control" value="${veiculo.ano_fabrico}"></td>
-						</tr>
-					</table>
-				</div> 
-			</div> 
-	
+					<br>
+					
+					<form action="encomendaEditar" method="post">
+							      
+				        <div class="row">
+				        	<div class="col">
+						       <label for="data de nascimeto">ID</label>
+						      <input type="text" name="id_encomenda" class="form-control" readonly="readonly" value="${encomenda.id_encomenda}">
+						    </div>
+				        	<div class="col">
+						       <label for="data de nascimeto">Descrição da encomenda</label>
+						      <input type="text" name="descricao" class="form-control" required value="${encomenda.descricao}">
+						    </div>
+						    <div class="col">
+						    	<label for="data de nascimeto">Referência do veículo:</label>
+						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="id_veiculo">
+							        <option selected></option>
+							       		 			        
+							        <%@ page import="
+							        	DTO.*,
+							        	DAO.*,
+							        	Model.*,
+							        	java.util.*,
+							        	java.sql.*
+							        "%>
+							        <%
+							        try{
+							        	 Connection connection = ConnectionFactory.getConnection();
+							        	 Statement statement = connection.createStatement();
+											statement.execute("SELECT * FROM veiculo");
+											
+											ResultSet rs = statement.getResultSet();
+											while (rs.next()){
+												Veiculo veiculo = new Veiculo();
+												out.println("<option value=\""+rs.getInt("id_veiculo")+"\">"+rs.getString("matricula")+"</option>");
+											}
+								        }catch(Exception e){
+							        	e.printStackTrace();
+							        }
+							       
+							        
+							        %>
+							       
+							        
+							    </select>
+						    </div>
+						    
+ 						</div>
+							
+							
+						
+				        <br>
+				        <hr>
+				      <div>
+				        <a class="btn btn-outline-warning" href="encomendaListar" role="button">
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
+							  <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1L1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
+							  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+							</svg>
+							Cancelar				
+						</a>
+				        
+				        <button type="submit" class="btn btn-outline-success">
+				        	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-save2" viewBox="0 0 16 16">
+							  <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
+							</svg>
+				        	Gravar
+				        </button>
+				      </div>
+				      					
+				  </form>
+				</div>
+
+		
 		
 		
 		

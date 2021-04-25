@@ -12,7 +12,7 @@
     	
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">    	   
-		<title>SGTM-DPSZ</title>
+		<title>SCTM-DPSZ</title>
 		
 		<script>
 				window.addEventListener( "pageshow", function ( event ) {
@@ -50,7 +50,7 @@
 		  <div class="collapse" id="navbarToggleExternalContent">
 		 	  
 		    <div class="bg-dark p-4">
-		      <h5 class="text-white h4">SGTM-DPSZ</h5>
+		      <h5 class="text-white h4">SCTM-DPSZ</h5>
 		      
 			      <a class="nav-link" href="index.jsp">
 			      	<svg xmlns="http://www.w3.org/2000/svg" width="28" height="25" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
@@ -119,11 +119,11 @@
 		    </div>
 	      
 			<div class="container">
-				<h2><b>Detalhes do Veículo: </b>${veiculo.fabricante} ${veiculo.modelo}</h2>
+				<h2><b>Detalhes do Motorista: </b>${motorista.nome} ${motorista.apelido}</h2>
 				
 				<br>
 			<div>  
-		        <a class="btn btn-outline-dark" href="veiculoListar" role="button">
+		        <a class="btn btn-outline-dark" href="motoristaListar" role="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
 					  <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
 					</svg>
@@ -135,36 +135,50 @@
 				<table border="0">
 						<tr>
 							<th><label for="id_funcionario">ID</label></th>
-								<td><input type="text" name="id_veiculo" readonly="readonly" class="form-control" value="${veiculo.id_veiculo}"></td>
+								<td><input type="text" name="id_motorista" readonly="readonly" class="form-control" value="${motorista.id_motorista}"></td>
 							</tr>
 						<tr>
-							<th><label for="nome">Fabricante:</label></th>
-								<td><input type="text" name="fabricante" readonly="readonly" class="form-control" value="${veiculo.fabricante}"></td>
+							<th><label for="nome">Nome:</label></th>
+								<td><input type="text" name="nome" readonly="readonly" class="form-control" value="${motorista.nome}"></td>
 						</tr>
 						<tr>
-							<th><label for="apelido">Modelo:</label></th>
-							<td><input type="text" name="modelo" readonly="readonly" class="form-control" value="${veiculo.modelo}"></td>
+							<th><label for="apelido">Apelido:</label></th>
+							<td><input type="text" name="apelido" readonly="readonly" class="form-control" value="${motorista.apelido}"></td>
 						</tr>
 						<tr>
-							<th><label for="sexo">Tipo:</label></th>
-							<td><input type="text" name="tipo" readonly="readonly" class="form-control" value="${veiculo.tipo}"></td>
+							<th><label for="sexo">Sexo:</label></th>
+							<td><input type="text" name="sexo" readonly="readonly" class="form-control" value="${motorista.sexo}"></td>
 						</tr>
 						<tr>
-							<th><label for="data_nascimento">Capacidade:</label></th>
-							<td><input type="text" name="capacidade" readonly="readonly" class="form-control" value="${veiculo.capacidade}"></td>
+							<th><label for="data_nascimento">Data de nascimento:</label></th>
+							<td><input type="text" fmt:formatDate pattern="dd/MM/yyyy" name="data_nascimento" readonly="readonly" class="form-control" value="${motorista.data_nascimento}"></td>
+						</tr>
+						
+						<tr>
+							<th><label for="nuit">Email:</label></th>
+							<td><input type="text" name="email" readonly="readonly" class="form-control" value="${motorista.email}"></td>
 						</tr>
 						<tr>
-							<th><label for="categoria">Matrícula:</label></th>
-							<td><input type="text" name="matricula" readonly="readonly" class="form-control" value="${veiculo.matricula}"></td>
+							<th><label for="telemovel">Telefone:</label></th>
+							<td><input type="text" name="telefone" readonly="readonly" class="form-control" value="${motorista.telefone}"></td>
 						</tr>
 						<tr>
-							<th><label for="local_trabalho">Ano de fabrico:</label></th>
-							<td><input type="text" name="ano_fabrico" readonly="readonly" class="form-control" value="${veiculo.ano_fabrico}"></td>
+							<th><label for="distrito">Endereço-Distrito:</label></th>
+							<td><input type="text" name="distrito" readonly="readonly" class="form-control" value="${motorista.distrito}"></td>
 						</tr>
+						<tr>
+							<th><label for="bairro">Bairro:</label></th>
+							<td><input type="text" name="bairro" readonly="readonly" class="form-control" value="${motorista.bairro}"></td>
+						</tr>
+						<tr>
+							<th><label for="rua">Rua:</label></th>
+							<td><input type="text" name="rua" readonly="readonly" class="form-control" value="${motorista.rua}"></td>
+						</tr>
+				
 					</table>
 				</div> 
 			</div> 
-	
+		
 		
 		
 		

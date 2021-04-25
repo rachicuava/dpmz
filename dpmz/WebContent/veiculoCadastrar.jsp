@@ -59,14 +59,14 @@
 					</svg>
 			      </a>
 		      	
-			     	<%
-		      		System.out.println(nivel);
+			     <%
 		      		if (nivel.equals("admin")){
 		      			%>
 		      			<a class="nav-link" href="usuarioListar">Usuários</a>
 		      			<a class="nav-link" href="depositoListar">Depósitos</a>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 		      			<a class="nav-link" href="viagemListar">Viagens</a>
 		      		<% 
 		      		
@@ -74,6 +74,7 @@
 		      			%>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 				        <a class="nav-link" href="viagemListar">Viagens</a>
 				     <% 
 		      		}else if(nivel.equals("Motorista")){
@@ -83,8 +84,7 @@
 		      		}else{
 		      			
 		      		}
-			     		 %>
-			     	<a class="nav-link" href="encomendaListar">Encomendas</a>
+			     		 %>			     	<a class="nav-link" href="encomendaListar">Encomendas</a>
 			        <hr>
 			        <a class="nav-link" href="sobre.jsp">Sobre nós!</a>
 			        

@@ -60,13 +60,13 @@
 			      </a>
 		      	
 			     	<%
-		      		System.out.println(nivel);
 		      		if (nivel.equals("admin")){
 		      			%>
 		      			<a class="nav-link" href="usuarioListar">Usuários</a>
 		      			<a class="nav-link" href="depositoListar">Depósitos</a>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 		      			<a class="nav-link" href="viagemListar">Viagens</a>
 		      		<% 
 		      		
@@ -74,6 +74,7 @@
 		      			%>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 				        <a class="nav-link" href="viagemListar">Viagens</a>
 				     <% 
 		      		}else if(nivel.equals("Motorista")){
@@ -118,7 +119,7 @@
 		    </div>
 	      
 			<div class="container">
-				<h2><b>Actualizar Depósito</b></h2>
+				<h2><b>Actualizar Depósito: </b>${deposito.descricao}</h2>
 				
 					<br>
 					
@@ -127,7 +128,7 @@
 				        <div class="row">
 				        	<div class="col">
 						      <label for="id">ID:</label>
-						      <input type="text" name="id_deposito" class="form-control" readonly="readonly" required value="${deposito.id_deposito}">
+						      <input type="text" name="id_deposito" class="form-control" readonly="readonly"   value="${deposito.id_deposito}">
 						    </div>
 						    <div class="col">
 						      <label for="descricao">Descrição:</label>

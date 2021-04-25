@@ -11,22 +11,25 @@ import javax.servlet.http.HttpServletResponse;
 
 import DTO.EncomendaService;
 import DTO.VeiculoService;
+import DTO.ViagemService;
 import Model.Encomenda;
+import Model.Motorista;
 import Model.Veiculo;
+import Model.Viagem;
 
 
 
 
-@WebServlet("/encomendaCadastrar")
-public class EncomendaCadastrarServlet extends HttpServlet {
+@WebServlet("/viagemCadastrar")
+public class ViagemCadastrarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	Veiculo veiculo = new Veiculo();
-	Encomenda encomenda = new Encomenda();
-	EncomendaService encomendaService = new EncomendaService();
-	VeiculoService veiculoService = new VeiculoService();
+	Viagem viagem = new Viagem(); 
+	Motorista motorista = new Motorista();
+	ViagemService viagemService = new ViagemService();
 	
-	public EncomendaCadastrarServlet() {
+	public ViagemCadastrarServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -36,12 +39,18 @@ public class EncomendaCadastrarServlet extends HttpServlet {
 			throws ServletException, IOException {
 	
 		veiculo.setId_veiculo(Integer.parseInt(request.getParameter("id_veiculo")));
-		encomenda.setDescricao(request.getParameter("descricao"));
-		encomenda.setVeiculo(veiculo);
+		motorista.setId_motorista(Integer.parseInt(request.getParameter("id_motorista")));
 		
-		encomendaService.adicionarEncomenda(encomenda);
+		viagem.setDescricao(request.getParameter("descricao"));
+		viagem.setOrigem(request.getParameter("origem"));
+		viagem.setDestino(request.getParameter("destino"));
+		viagem.setVeiculo(veiculo);	
+		viagem.setMotorista(motorista);
 		
-		response.sendRedirect("encomendaListar");
+		viagemService.adicionarViagem(viagem);;
+		
+		
+		response.sendRedirect("viagemListar");
 	}
 
 }

@@ -14,33 +14,37 @@ import DTO.VeiculoService;
 import Model.Encomenda;
 import Model.Veiculo;
 
-
-
-
-@WebServlet("/encomendaCadastrar")
-public class EncomendaCadastrarServlet extends HttpServlet {
+@WebServlet("/encomendaEditar")
+public class EncomendaEditarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	Veiculo veiculo = new Veiculo();
 	Encomenda encomenda = new Encomenda();
 	EncomendaService encomendaService = new EncomendaService();
 	VeiculoService veiculoService = new VeiculoService();
-	
-	public EncomendaCadastrarServlet() {
+
+	public EncomendaEditarServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int id_encomenda = Integer.valueOf(request.getParameter("id_encomenda"));
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("encomendaEditar.jsp");
+		request.setAttribute("encomenda", encomendaService.buscarEncomenda(id_encomenda));
+
+		requestDispatcher.forward(request, response);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
 		veiculo.setId_veiculo(Integer.parseInt(request.getParameter("id_veiculo")));
+		encomenda.setId_encomenda(Integer.valueOf(request.getParameter("id_encomenda")));
 		encomenda.setDescricao(request.getParameter("descricao"));
 		encomenda.setVeiculo(veiculo);
 		
-		encomendaService.adicionarEncomenda(encomenda);
-		
+		encomendaService.actualizarEncomenda(encomenda);;
 		response.sendRedirect("encomendaListar");
 	}
 

@@ -62,6 +62,7 @@ public class FuncionarioEditarServlet extends HttpServlet {
 				
 				e.printStackTrace();
 			}
+		
 	    
 	    funcionarioService.actualizarFuncionario(funcionario);
 	    

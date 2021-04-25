@@ -61,7 +61,7 @@ public class FuncionarioService {
 					
 				try {
 					PreparedStatement pstmt = connection
-							.prepareStatement("UPDATE funcionario SET nome=?, apelido=?, sexo=?, data_nascimento=? categoria=?,  nuit=?, email=?, telefone=?, distrito=?, bairro=?, rua=?  WHERE id_funcionario="+funcionario.getId_funcionario());
+							.prepareStatement("UPDATE funcionario SET nome=?, apelido=?, sexo=?, data_nascimento=?, categoria=?,  nuit=?, email=?, telefone=?, distrito=?, bairro=?, rua=?  WHERE id_funcionario="+funcionario.getId_funcionario());
 					
 					pstmt.setString(1, funcionario.getNome());
 					pstmt.setString(2, funcionario.getApelido());

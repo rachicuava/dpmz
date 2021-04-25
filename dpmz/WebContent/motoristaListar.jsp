@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -10,11 +10,11 @@
 		<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     	
-    	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">    	   
-		<title>SGTM-DPSZ</title>
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+     	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">   	
+		<title>SGTM-DPMZ</title>
 		
-		<script>
+			<script>
 				window.addEventListener( "pageshow", function ( event ) {
 				var historyTraversal = event.persisted ||
 				( typeof window.performance != "undefined" &&
@@ -42,13 +42,12 @@
 				%>
 		
 		
-	</head>
-	
-	<body>
+				
+				
+			</head>
 		
-		<div class="fixed-top">
+	<div class="fixed-top">
 		  <div class="collapse" id="navbarToggleExternalContent">
-		 	  
 		    <div class="bg-dark p-4">
 		      <h5 class="text-white h4">SGTM-DPSZ</h5>
 		      
@@ -91,17 +90,14 @@
 			        
 		     
 		    </div>
-		    
-		      
 		  </div>
 		  <nav class="navbar navbar-dark bg-dark">
 		    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
 		  </nav>
-		
 		</div>
-		
+
 			<br>
 			<br>
 							
@@ -118,67 +114,80 @@
 		        </div>
 		    </div>
 	      
-			<div class="container">
-				<h2><b>Detalhes do Veículo: </b>${veiculo.fabricante} ${veiculo.modelo}</h2>
+			
+		<div class="container">
+				
+		
+			<h2><b>Motoristas</b></h2>
+			
+						
+				<br>
+								
+				<a class="btn btn-outline-dark" href="motoristaCadastrar.jsp" role="button">
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+					  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+					  <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+					</svg>
+					Novo Motorista				
+				</a>
 				
 				<br>
-			<div>  
-		        <a class="btn btn-outline-dark" href="veiculoListar" role="button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
-					  <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
-					</svg>
-					Voltar				
-				</a>
-			</div>  
-			<br>
-			<div> 
-				<table border="0">
-						<tr>
-							<th><label for="id_funcionario">ID</label></th>
-								<td><input type="text" name="id_veiculo" readonly="readonly" class="form-control" value="${veiculo.id_veiculo}"></td>
-							</tr>
-						<tr>
-							<th><label for="nome">Fabricante:</label></th>
-								<td><input type="text" name="fabricante" readonly="readonly" class="form-control" value="${veiculo.fabricante}"></td>
-						</tr>
-						<tr>
-							<th><label for="apelido">Modelo:</label></th>
-							<td><input type="text" name="modelo" readonly="readonly" class="form-control" value="${veiculo.modelo}"></td>
-						</tr>
-						<tr>
-							<th><label for="sexo">Tipo:</label></th>
-							<td><input type="text" name="tipo" readonly="readonly" class="form-control" value="${veiculo.tipo}"></td>
-						</tr>
-						<tr>
-							<th><label for="data_nascimento">Capacidade:</label></th>
-							<td><input type="text" name="capacidade" readonly="readonly" class="form-control" value="${veiculo.capacidade}"></td>
-						</tr>
-						<tr>
-							<th><label for="categoria">Matrícula:</label></th>
-							<td><input type="text" name="matricula" readonly="readonly" class="form-control" value="${veiculo.matricula}"></td>
-						</tr>
-						<tr>
-							<th><label for="local_trabalho">Ano de fabrico:</label></th>
-							<td><input type="text" name="ano_fabrico" readonly="readonly" class="form-control" value="${veiculo.ano_fabrico}"></td>
-						</tr>
-					</table>
-				</div> 
-			</div> 
-	
+				<br>
+				<div class="table-responsive">
+				<table class="table table-sm table-hover">
+				  <thead class="thead-dark">
+				    <tr>
+				      <th>Nome</th>
+				      <th>Apelido</th>
+					  <th>Sexo</th>
+				      <th align="center">Acções</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	  <c:forEach items="${listaMotoristas}" var="motorista">
+					    <tr>
+					      <th>${motorista.nome}</th>
+					      <th>${motorista.apelido}</th>   
+					      <th>${motorista.sexo}</th>
+					      <td>
+					      	
+							<a href="motoristaDetalhes?id_motorista=${motorista.id_motorista}">
+								<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-info-square" viewBox="0 0 16 16">
+								  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+								  <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+								</svg>
+							</a>
+							&nbsp;|&nbsp;
+					      	<a  href="motoristaEditar?id_motorista=${motorista.id_motorista}">
+							  	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="text-warning" viewBox="0 0 16 16">
+								  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+								  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+								</svg>
+							</a>
+							&nbsp;|&nbsp;
+							<a onclick="return confirm('Deseja realmente excluir ${motorista.nome}?')" href="motoristaExcluir?id_motorista=${motorista.id_motorista}">
+								<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"  alt="Apagar" fill="currentColor" class="text-danger" viewBox="0 0 16 16">
+								  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+								  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+								</svg>
+							</a>
+							
+					     </td>
+					   </tr>
+				    </c:forEach>
+				   </tbody>
+				</table>
+			</div>
+		</div>
 		
 		
+    	<script type="text/javascript">
+    		$('.alert').alert('close')
+    	</script>
 		
-		
-			
-		
-		
-		
-	
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-			
-	
-   </body>
-	
+				
+	</body>
 </html>

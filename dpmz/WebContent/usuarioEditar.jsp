@@ -59,13 +59,13 @@
 					</svg>
 			      </a>
 		      		<%
-		      		System.out.println(nivel);
 		      		if (nivel.equals("admin")){
 		      			%>
 		      			<a class="nav-link" href="usuarioListar">Usuários</a>
 		      			<a class="nav-link" href="depositoListar">Depósitos</a>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 		      			<a class="nav-link" href="viagemListar">Viagens</a>
 		      		<% 
 		      		
@@ -73,6 +73,7 @@
 		      			%>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 				        <a class="nav-link" href="viagemListar">Viagens</a>
 				     <% 
 		      		}else if(nivel.equals("Motorista")){
@@ -117,7 +118,7 @@
 		    </div>
 	      
 			<div class="container">
-				<h2><b>Actualizar Usuário</b></h2>
+				<h2><b>Actualizar Usuário: </b>${Usuario.usuario}</h2>
 				
 					<br>
 					
@@ -141,7 +142,7 @@
 						    <div class="col">
 						   		 <label for="nivel de acesso">Nível de acesso:</label>
 						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="nivel_acesso" value="${Usuario.nivel_acesso}">
-							        <option selected>Selecione um nível de acesso</option>
+							        <option selected></option>
 							        <option value="admin">Administrador</option>
 							        <option value="Gestor Provincial">Gestor Provincial</option>
 							        <option value="Gestor Distrital">Gestor Pistrital</option>

@@ -60,13 +60,13 @@
 			      </a>
 		      	
 			     	<%
-		      		System.out.println(nivel);
 		      		if (nivel.equals("admin")){
 		      			%>
 		      			<a class="nav-link" href="usuarioListar">Usuários</a>
 		      			<a class="nav-link" href="depositoListar">Depósitos</a>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 		      			<a class="nav-link" href="viagemListar">Viagens</a>
 		      		<% 
 		      		
@@ -74,6 +74,7 @@
 		      			%>
 		      			<a class="nav-link" href="veiculoListar">Veículos</a>
 		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 				        <a class="nav-link" href="viagemListar">Viagens</a>
 				     <% 
 		      		}else if(nivel.equals("Motorista")){
@@ -125,45 +126,61 @@
 					<form action="encomendaCadastrar" method="post">
 							      
 				        <div class="row">
-						    <div class="col">
-						      <label for="id">ID Veículo:</label>
-						      <input type="text" name="id_veiculo" class="form-control" readonly="readonly" value="${veiculo.id_veiculo}">
-						    </div>
-						    
-						    <div class="col">
-						      <label for="modelo">Matrícula do Veículo:</label>
-						      <input type="text" name="" class="form-control" readonly="readonly" value="${veiculo.matricula}">
-							</div>
-							<div class="col">
-						     
-						    </div>
-						    <div class="col">
-						     
-						    </div>
-						</div>
-							
-							<br>
-				        <div class="row">
 				        	<div class="col">
-						      <input type="text" name="descricao" class="form-control" required placeholder="Descrição da encomenda">
-						    </div>
-						    				        							    
-						    <div class="col">
-						     
+				        	  <label for="data de nascimeto">Dados da encomenda</label>
+						      <input type="text" name="descricao" class="form-control" required placeholder="Descrição ">
 						    </div>
 						    
-						</div>
+						    <div class="col">
+						    	 <label for="data de nascimeto">Selecione o veículo</label>
+						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="id_veiculo">
+							        <option selected></option>
+							       		 			        
+							        <%@ page import="
+							        	DTO.*,
+							        	DAO.*,
+							        	Model.*,
+							        	java.util.*,
+							        	java.sql.*
+							        "%>
+							        <%
+							        try{
+							        	 Connection connection = ConnectionFactory.getConnection();
+							        	 Statement statement = connection.createStatement();
+											statement.execute("SELECT * FROM veiculo");
+											
+											ResultSet rs = statement.getResultSet();
+											while (rs.next()){
+												Veiculo veiculo = new Veiculo();
+												out.println("<option value=\""+rs.getInt("id_veiculo")+"\">"+rs.getString("matricula")+"</option>");
+											}
+								        }catch(Exception e){
+							        	e.printStackTrace();
+							        }
+							       
+							        
+							        %>
+							       
+							        
+							    </select>
+						    </div>
+						    
+ 						</div>
+							
+							
 						
 				        <br>
 				        <hr>
 				      <div>
-				        <a class="btn btn-outline-warning" href="encomendaListar" role="button">
-							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
+				        
+						
+						<button type="reset" class="btn btn-outline-warning">
+				        	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
 							  <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1L1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
 							  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 							</svg>
-							Cancelar				
-						</a>
+							Limpar
+				        </button>
 				        
 				        <button type="submit" class="btn btn-outline-success">
 				        	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-save2" viewBox="0 0 16 16">
