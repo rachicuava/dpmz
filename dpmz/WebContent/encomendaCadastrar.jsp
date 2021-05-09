@@ -132,7 +132,8 @@
 						    </div>
 						    
 						    <div class="col">
-						    	 <label for="data de nascimeto">Selecione o veículo</label>
+						    	
+						    	 <label for="veiculo">Selecione o veículo</label>
 						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="id_veiculo">
 							        <option selected></option>
 							       		 			        

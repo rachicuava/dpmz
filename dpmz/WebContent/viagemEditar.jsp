@@ -11,7 +11,7 @@
     	
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">
-   	  
+    	    	   
 		<title>SGTM-DPSZ</title>
 		
 		<script>
@@ -58,8 +58,8 @@
 					  <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
 					</svg>
 			      </a>
-		      		
-		      		<%
+		      	
+			     	<%
 		      		if (nivel.equals("admin")){
 		      			%>
 		      			<a class="nav-link" href="usuarioListar">Usuários</a>
@@ -86,7 +86,6 @@
 		      		}
 			     		 %>
 			     	<a class="nav-link" href="encomendaListar">Encomendas</a>
-			        
 			        <hr>
 			        <a class="nav-link" href="sobre.jsp">Sobre nós!</a>
 			        
@@ -119,88 +118,147 @@
 		        </div>
 		    </div>
 	      
+			<div class="container">
+				<h2><b>Actualização de Viagem</b></h2>
+				
+					<br>
+					
+					<form action="viagemEditar" method="post">
+						<div class="row">
+				        	<div class="col">
+				        	  <label for="descricao">ID</label>
+						      <input type="text" name="id_viagem" class="form-control" readonly="readonly" value="${viagem.id_viagem}">
+						    </div>
+						    
+						    <div class="col">
+				        	</div>
+				        	<div class="col">
+				        	</div>
+				        	<div class="col">
+				        	</div>
+				        	<div class="col">
+				        	</div>
+				        	
+						 </div>	      
+				        <div class="row">
+				        	<div class="col">
+				        	  <label for="descricao">Dados da viagem</label>
+						      <input type="text" name="descricao" class="form-control" required value="${viagem.descricao}">
+						    </div>
+						    
+						    <div class="col">
+				        	  <label for="origem">Origem</label>
+						      <input type="text" name="origem" class="form-control" required value="${viagem.origem}">
+						    </div>
+						    
+						    <div class="col">
+				        	  <label for="destino">Destino</label>
+						      <input type="text" name="destino" class="form-control" required value="${viagem.destino}">
+						    </div>
+ 						</div>
+ 						
+ 						<div class="row">
+				        	
+						    <div class="col">
+						    	 <label for="data de nascimeto">Selecione o veículo</label>
+						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="id_veiculo"">
+							        <option selected></option>
+							       		 			        
+							        <%@ page import="
+							        	DTO.*,
+							        	DAO.*,
+							        	Model.*,
+							        	java.util.*,
+							        	java.sql.*
+							        "%>
+							        <%
+							        try{
+							        	 Connection connection = ConnectionFactory.getConnection();
+							        	 Statement statement = connection.createStatement();
+											statement.execute("SELECT * FROM veiculo");
+											
+											ResultSet rs = statement.getResultSet();
+											while (rs.next()){
+												Veiculo veiculo = new Veiculo();
+												out.println("<option value=\""+rs.getInt("id_veiculo")+"\">"+rs.getString("matricula")+"</option>");
+											}
+								        }catch(Exception e){
+							        	e.printStackTrace();
+							        }
+							       
+							        
+							        %>
+							    </select>
+						    </div>
+						    <div class="col">
+						    	 <label for="motorista">Selecione o motorista</label>
+						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="id_motorista" >
+							        <option selected></option>
+							       		 			        
+							        <%@ page import="
+							        	DTO.*,
+							        	DAO.*,
+							        	Model.*,
+							        	java.util.*,
+							        	java.sql.*
+							        "%>
+							        <%
+							        try{
+							        	 Connection connection = ConnectionFactory.getConnection();
+							        	 Statement statement = connection.createStatement();
+											statement.execute("SELECT * FROM motorista");
+											
+											ResultSet rs = statement.getResultSet();
+											while (rs.next()){
+												Motorista motorista = new Motorista();
+												out.println("<option value=\""+rs.getInt("id_motorista")+"\">"+rs.getString("nome")+"</option>");
+											}
+								        }catch(Exception e){
+							        	e.printStackTrace();
+							        }
+							       
+							        
+							        %>
+							    </select>
+						    </div>
+						    <div class="col">
+				        	  
+						    </div>
+						    
+ 						</div>
+							
+							
+						
+				        <br>
+				        <hr>
+				      <div>
+				        
+						
+						<a class="btn btn-outline-warning" href="viagemListar" role="button">
+							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
+							  <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1L1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
+							  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+							</svg>
+							Cancelar				
+						</a>
+				        
+				        <button type="submit" class="btn btn-outline-success">
+				        	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-save2" viewBox="0 0 16 16">
+							  <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
+							</svg>
+				        	Gravar
+				        </button>
+				      </div>
+				      					
+				  </form>
+				</div>
 
-
-		<br>
+		
+		
+		
+		
+		
 			
-		<div class="container"> 
-			<div align="center" class="alert alert-success" role="alert">
-			  <h2><b>Bem vindo ao SCTM - Depósito Provincial de Medicamentos - Zambézia </b></h2>
-			  Estamos localizados na Avenida 25 de Junho, Bairro Aeroporto - Cidade de Quelimane.
-			</div>
-		</div>
-		
-		
-		
-		
-		
-		
-		
-		<div class="container w-75 p-3"> 
-			<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
-			  <ol class="carousel-indicators">
-			    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-			    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-			    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-			    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-			    <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
-			  </ol>
-			  <div class="carousel-inner">
-			    <div class="carousel-item active">
-			      <img src="imagens/mocuba.JPG" class="d-block w-100" alt="Deposito regional de Mocuba">
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5>Depósitito regional de Mocuba</h5>
-			        <p>Novo depósito em construção.</p>
-			      </div>
-			    </div>
-			    
-			    <div class="carousel-item">
-			      <img src="imagens/stock1.JPG" class="d-block w-100" alt="...">
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5>DPM - Compartimento de suplementos nutricionais!</h5>
-			        <p>Área de stocagem de splementos nutricionais!</p>
-			      </div>
-			    </div>
-			    
-			    <div class="carousel-item">
-			      <img src="imagens/vacinas.JPG" class="d-block w-100" alt="DDM Mocuba">
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5>DPM - Compartimento de Vacinas!</h5>
-			        <p>Câmara de conservação de vacinas.</p>
-			      </div>
-			    </div>
-			    			    
-			    <div class="carousel-item">
-			      <img src="imagens/dpmz.jpg" class="d-block w-100" alt="DPMZ">
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5>DPM - Vista Frontal</h5>
-			        <p>Depósito Provincial de Medicamentos.</p>
-			      </div>
-			    </div>
-			    
-			    <div class="carousel-item">
-			      <img src="imagens/veiculo.jpg" class="d-block w-100" alt="Veículo do DPM">
-			      <div class="carousel-caption d-none d-md-block">
-			        <h5>Carro contentor!</h5>
-			        <p>Veículo de transporte de medicamentos.</p>
-			      </div>
-			    </div>
-			  </div>
-			  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Anterior</span>
-			  </a>
-			  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			    <span class="sr-only">Próximo</span>
-			  </a>
-			</div>
-		</div>
-		
-		<dir align="center" class="container";>
-			<footer class="footer navbar-fixed-bottom">
-			© 2021 Copyright - DPMZ
-		</footer>
 		
 		
 		

@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 import DAO.ConnectionFactory;
-import Model.Encomenda;
 import Model.Motorista;
 import Model.Veiculo;
 import Model.Viagem;
@@ -28,7 +27,7 @@ public class ViagemService {
 			pstmt.setString(1, viagem.getDescricao());
 			pstmt.setDate(2, new java.sql.Date(new Date().getTime()));
 			pstmt.setString(3, viagem.getOrigem());
-			pstmt.setString(4, viagem.getOrigem());
+			pstmt.setString(4, viagem.getDestino());
 			pstmt.setInt(5, viagem.getVeiculo().getId_veiculo());
 			pstmt.setInt(6, viagem.getMotorista().getId_motorista());
 
@@ -51,13 +50,13 @@ public class ViagemService {
 
 		try {
 			PreparedStatement pstmt = connection.prepareStatement(
-					"UPDATE viagem SET descricao=?, data=?, origem=?, destino=?,  veiculo_id_veiculo=?, motorista_id_motorista  WHERE id_viagem="
+					"UPDATE viagem SET descricao=?, data=?, origem=?, destino=?,  veiculo_id_veiculo=?, motorista_id_motorista=?  WHERE id_viagem="
 							+ viagem.getId_viagem());
 
 			pstmt.setString(1, viagem.getDescricao());
 			pstmt.setDate(2, new java.sql.Date(new Date().getTime()));
 			pstmt.setString(3, viagem.getOrigem());
-			pstmt.setString(4, viagem.getOrigem());
+			pstmt.setString(4, viagem.getDestino());
 			pstmt.setInt(5, viagem.getVeiculo().getId_veiculo());
 			pstmt.setInt(6, viagem.getMotorista().getId_motorista());
 			
@@ -216,11 +215,10 @@ public class ViagemService {
 			
 			while (rs.next()) {
 
-				viagem.setId_viagem(rs.getInt("vg.id_viagem"));
-				viagem.setDescricao(rs.getString("vg.descricao"));
-				viagem.setData(rs.getDate("vg.data"));
-				viagem.setOrigem(rs.getString("vg.origem"));
-				viagem.setDestino(rs.getString("vg.destino"));
+				viagem.setId_viagem(rs.getInt("id_viagem"));
+				viagem.setDescricao(rs.getString("descricao"));
+				viagem.setOrigem(rs.getString("origem"));
+				viagem.setDestino(rs.getString("destino"));
 				
 				
 			}

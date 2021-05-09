@@ -3,10 +3,6 @@
   <display-name>dpmz</display-name>
   <welcome-file-list>
     <welcome-file></welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file></welcome-file>
-    <welcome-file></welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>login.html</welcome-file>
   </welcome-file-list>
 </web-app>

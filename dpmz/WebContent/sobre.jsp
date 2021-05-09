@@ -60,20 +60,21 @@
 			      </a>
 		      		
 		      		<%
-		      		System.out.println(nivel);
 		      		if (nivel.equals("admin")){
 		      			%>
-		      			<a class="nav-link" href="usuarioListar">Usuários</a>
-		      			<a class="nav-link" href="depositoListar">Depósitos</a>
-		      			<a class="nav-link" href="veiculoListar">Veículos</a>
-		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="usuarioListar">Usu�rios</a>
+		      			<a class="nav-link" href="depositoListar">Dep�sitos</a>
+		      			<a class="nav-link" href="veiculoListar">Ve�culos</a>
+		      			<a class="nav-link" href="funciorioListar">Funcion�rios</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 		      			<a class="nav-link" href="viagemListar">Viagens</a>
 		      		<% 
 		      		
 		      		}else if(nivel.equals("Gestor Provincial")){
 		      			%>
-		      			<a class="nav-link" href="veiculoListar">Veículos</a>
-		      			<a class="nav-link" href="funciorioListar">Funcionários</a>
+		      			<a class="nav-link" href="veiculoListar">Ve�culos</a>
+		      			<a class="nav-link" href="funciorioListar">Funcion�rios</a>
+		      			<a class="nav-link" href="motoristaListar">Motoristas</a>
 				        <a class="nav-link" href="viagemListar">Viagens</a>
 				     <% 
 		      		}else if(nivel.equals("Motorista")){
@@ -87,7 +88,7 @@
 			     	<a class="nav-link" href="encomendaListar">Encomendas</a>
 			        
 			        <hr>
-			        <a class="nav-link" href="sobre.jsp">Sobre nós!</a>
+			        <a class="nav-link" href="sobre.jsp">Sobre n�s!</a>
 			        
 		     
 		    </div>
@@ -107,7 +108,7 @@
 							
 			<div class="alert alert-dark" role="alert">
 				<div align="right">
-				<b>Usuário activo:</b> <%=usuario%> &nbsp;|&nbsp;
+				<b>Usu�rio activo:</b> <%=usuario%> &nbsp;|&nbsp;
 		        <a onclick="return confirm('<%=usuario%> deseja realmente sair do sitema? ')" href="logout" ">
 			        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
 					  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
@@ -122,13 +123,21 @@
 
 		<br>
 			
-		
-		<div class="container">
-		
-		<br>
-		O Depósito Provincial de Medicamentos (DPM) é um sector da Direção Provincial de Saúde da Zambézia, situado no bairro Aeroporto, avenida 25 de Junho – Cidade de Quelimane, responsável gestão e distribuição de medicamentos e artigos médicos aos depósitos distritais e estes por sua vez às Unidades Sanitárias  
+		<div class="container"> 
 			
-			
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		<dir align="center" class="container";>
+			<footer class="footer navbar-fixed-bottom">
+			� 2021 Copyright - DPMZ
+		</footer>
 		
 		
 		
@@ -136,7 +145,7 @@
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-		</div>	
+			
 	
    </body>
 	
