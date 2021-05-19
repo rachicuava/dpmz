@@ -22,12 +22,14 @@ public class UsuarioService {
 					try {
 						
 						PreparedStatement pstmt = connection
-								.prepareStatement("INSERT INTO usuario (usuario, senha, nivel_acesso) values (?, ?, ?)");
+								.prepareStatement("INSERT INTO usuario (usuario, senha, nivel_acesso, telefone, email) values (?, ?, ?, ?, ?)");
 						
 						pstmt.setString(1, user.getUsuario());
 						pstmt.setString(2, user.getSenha());
 						pstmt.setString(3, user.getNivel_acesso());
-												
+						pstmt.setString(4, user.getTelefone());
+						pstmt.setString(5, user.getEmail());
+						
 						pstmt.executeUpdate();
 						
 						pstmt.close();
@@ -49,11 +51,13 @@ public class UsuarioService {
 						
 					try {
 						PreparedStatement pstmt = connection
-								.prepareStatement("UPDATE usuario SET usuario=?, senha=?, nivel_acesso=? WHERE id_usuario="+user.getId_usuario());
+								.prepareStatement("UPDATE usuario SET usuario=?, senha=?, nivel_acesso=? telefone=?, email=? WHERE id_usuario="+user.getId_usuario());
 						
 						pstmt.setString(1, user.getUsuario());
 						pstmt.setString(2, user.getSenha());
 						pstmt.setString(3, user.getNivel_acesso());
+						pstmt.setString(4, user.getTelefone());
+						pstmt.setString(5, user.getEmail());
 											
 						pstmt.executeUpdate();
 						
@@ -89,6 +93,8 @@ public class UsuarioService {
 					user.setUsuario(rs.getString("usuario"));
 					user.setSenha(rs.getString("senha"));
 					user.setNivel_acesso(rs.getString("nivel_acesso"));
+					user.setTelefone(rs.getString("telefone"));
+					user.setEmail(rs.getString("email"));
 					
 					listaDeUsuarios.add(user);
 							
@@ -146,6 +152,8 @@ public class UsuarioService {
 					user.setUsuario(rs.getString("usuario"));
 					user.setSenha(rs.getString("senha"));
 					user.setNivel_acesso(rs.getString("nivel_acesso"));
+					user.setTelefone(rs.getString("telefone"));
+					user.setEmail(rs.getString("email"));
 											
 				}
 				
@@ -183,6 +191,8 @@ public class UsuarioService {
 						user.setUsuario(rs.getString("usuario"));
 						user.setSenha(rs.getString("senha"));
 						user.setNivel_acesso(rs.getString("nivel_acesso"));
+						user.setTelefone(rs.getString("telefone"));
+						user.setEmail(rs.getString("email"));
 																	
 					}
 					

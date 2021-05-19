@@ -146,7 +146,7 @@
 							<td><input type="text" name="apelido" readonly="readonly" class="form-control" value="${funcionario.apelido}"></td>
 						</tr>
 						<tr>
-							<th><label for="sexo">Sexo:</label></th>
+							<th><label for="sexo">Género:</label></th>
 							<td><input type="text" name="sexo" readonly="readonly" class="form-control" value="${funcionario.sexo}"></td>
 						</tr>
 						<tr>

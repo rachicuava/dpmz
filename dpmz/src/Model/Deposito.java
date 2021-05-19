@@ -8,8 +8,8 @@ public class Deposito {
 	private String rua;
 	private String email;
 	private String telefone;
-	private String longitude;
-	private String latitude;
+	private Float longitude;
+	private Float latitude;
 	
 	
 	public Deposito() {
@@ -77,22 +77,22 @@ public class Deposito {
 	}
 
 
-	public String getLongitude() {
+	public Float getLongitude() {
 		return longitude;
 	}
 
 
-	public void setLongitude(String longitude) {
+	public void setLongitude(Float longitude) {
 		this.longitude = longitude;
 	}
 
 
-	public String getLatitude() {
+	public Float getLatitude() {
 		return latitude;
 	}
 
 
-	public void setLatitude(String latitude) {
+	public void setLatitude(Float latitude) {
 		this.latitude = latitude;
 	}
 

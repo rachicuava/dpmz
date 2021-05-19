@@ -138,8 +138,11 @@
 						      <label for="senha">Senha:</label>
 						      <input type="text" name="senha" class="form-control" required value="${Usuario.senha}">
 						    </div>
-						    
-						    <div class="col">
+						   
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">
 						   		 <label for="nivel de acesso">Nível de acesso:</label>
 						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="nivel_acesso" value="${Usuario.nivel_acesso}">
 							        <option selected></option>
@@ -149,8 +152,17 @@
 							        <option value="Motorista">Motorista</option>
 							    </select>
 						    </div>
+				       	    <div class="col">
+						      <label for="id">Telefone</label>
+						      <input type="text" name="telefone" class="form-control" value="${Usuario.telefone}">
+						    </div>
+						    <div class="col">
+						      <label for="usuario">Email</label>
+						      <input type="email" name="email" class="form-control" required value="${Usuario.email}">
+						    </div>
+						  						    
 						</div>
-							
+				
 						   
 				        
 				        <br>
@@ -175,14 +187,6 @@
 			  </form>
 			</div>
 
-		
-		
-		
-		
-		
-			
-		
-		
 		
 	
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

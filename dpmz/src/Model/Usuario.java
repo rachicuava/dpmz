@@ -5,6 +5,8 @@ public class Usuario {
 	private String usuario;
 	private String senha;
 	private String nivel_acesso;
+	private String telefone;
+	private String email;
 	
 	// CONSTRUTORES PARA ESCRITA E LEITURA DE DADOS NA BD
 	public int getId_usuario() {
@@ -30,6 +32,18 @@ public class Usuario {
 	}
 	public void setNivel_acesso(String nivel_acesso) {
 		this.nivel_acesso = nivel_acesso;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	

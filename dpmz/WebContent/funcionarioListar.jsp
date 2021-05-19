@@ -145,6 +145,7 @@
 				<table class="table table-sm table-hover">
 				  <thead class="thead-dark">
 				    <tr>
+				      <th>Código</th>
 				      <th>Nome</th>
 				      <th>Apelido</th>
 				      <th>Categoria</th>
@@ -155,6 +156,7 @@
 				  <tbody>
 				  	  <c:forEach items="${listaFuncionarios}" var="funcionario">
 					    <tr>
+					      <th>${funcionario.id_funcionario}</th>
 					      <th>${funcionario.nome}</th>
 					      <th>${funcionario.apelido}</th>   
 					      <th>${funcionario.categoria}</th>

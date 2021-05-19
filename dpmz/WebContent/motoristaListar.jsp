@@ -137,6 +137,7 @@
 				<table class="table table-sm table-hover">
 				  <thead class="thead-dark">
 				    <tr>
+				      <th>Código</th>
 				      <th>Nome</th>
 				      <th>Apelido</th>
 					  <th>Sexo</th>
@@ -146,6 +147,7 @@
 				  <tbody>
 				  	  <c:forEach items="${listaMotoristas}" var="motorista">
 					    <tr>
+					      <th>${motorista.id_motorista}</th>
 					      <th>${motorista.nome}</th>
 					      <th>${motorista.apelido}</th>   
 					      <th>${motorista.sexo}</th>

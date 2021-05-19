@@ -41,8 +41,8 @@ public class DepositoEditarServle extends HttpServlet {
 		deposito.setRua(request.getParameter("rua"));
 		deposito.setEmail(request.getParameter("email"));
 		deposito.setTelefone(request.getParameter("telefone"));
-		deposito.setLongitude(request.getParameter("longitude"));
-		deposito.setLatitude(request.getParameter("latitude"));
+		deposito.setLongitude(Float.valueOf(request.getParameter("longitude")));
+		deposito.setLatitude(Float.valueOf(request.getParameter("latitude")));
 		
 		depositoService.actuaizarFuncionario(deposito);
 		 response.sendRedirect("depositoListar");

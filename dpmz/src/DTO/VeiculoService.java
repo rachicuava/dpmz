@@ -21,7 +21,7 @@ public class VeiculoService {
 						
 					try {
 						PreparedStatement pstmt = connection
-								.prepareStatement("INSERT INTO veiculo (fabricante, modelo, tipo, capacidade, matricula, ano_fabrico) values (?, ?, ?, ?, ?, ?)");
+								.prepareStatement("INSERT INTO veiculo (fabricante, modelo, tipo, capacidade, matricula, ano_fabrico, imagem) values (?, ?, ?, ?, ?, ?, ?)");
 						
 						pstmt.setString(1, veiculo.getFabricante());
 						pstmt.setString(2, veiculo.getModelo());
@@ -29,6 +29,7 @@ public class VeiculoService {
 						pstmt.setString(4, veiculo.getCapacidade());
 						pstmt.setString(5, veiculo.getMatricula());
 						pstmt.setInt(6, veiculo.getAno_fabrico());
+						pstmt.setBlob(7, veiculo.getImagem());
 												
 						pstmt.executeUpdate();
 						

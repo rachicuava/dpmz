@@ -138,6 +138,7 @@
 				<table class="table table-sm table-hover">
 				  <thead class="thead-dark">
 				    <tr>
+				      <th>Código</th>
 				      <th>Fabricante</th>
 				      <th>Modelo</th>
 				      <th>Tipo</th>
@@ -149,6 +150,7 @@
 				  <tbody>
 				  	  <c:forEach items="${listaVeiculos}" var="veiculo">
 					    <tr>
+					      <th>${veiculo.id_veiculo}</th>
 					      <th>${veiculo.fabricante}</th>
 					      <th>${veiculo.modelo}</th>   
 					      <th>${veiculo.tipo}</th>

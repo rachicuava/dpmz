@@ -40,7 +40,9 @@ public class UsuarioEditarServlet extends HttpServlet {
 		user.setUsuario(request.getParameter("usuario"));
 		user.setSenha(request.getParameter("senha"));
 		user.setNivel_acesso(request.getParameter("nivel_acesso"));
-		
+		user.setTelefone(request.getParameter("telefone"));
+		user.setEmail(request.getParameter("email"));
+				
 		userService.actualizarUsuario(user);
 		response.sendRedirect("usuarioListar");
 	}

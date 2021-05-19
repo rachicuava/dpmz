@@ -1,66 +1,83 @@
 <?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="pt">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Type" content="width=device-width, initial-scale=1" name="viewport">
-		<link rel="stylesheet" href="css/bootstrap.min.css"/>
-    	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">
-    	
-	 	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-	    <script src="js/bootstrap.min.js"></script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type"
+		content="width=device-width, initial-scale=1" name="viewport">
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		<link rel="shortcut icon" type="image/x-icon"
+			href="imagens/favicon.ico">
+
+			<title>Login</title>
+
+			 <style type="text/css">
+		    	body{
+		    	background-color: #E3E6E6; 
+		    	}
+		      form {
+		      width:330px;
+		      }
+		      h5{
+		      color: red;
+		      }
 		
-		<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico"> 
-	<title>Login</title>
-	
-	<style>
-		body{
-			background-color: #f0f0f5;
+		    </style>
+</head>
+
+<body class="text-center">
+	<div class="container" align="center">
+		<br />
+		<br />
+		<br />
+		<h1>
+			<b>Sistema Gestão de Transporte de Medicamentos - Zambézia</b>
+		</h1>
+		<br />
+		<br />
+		<br />
+
 		
-		}
-	</style>
-	
-	</head>
-	
-	<body class="text-center">
-		<div class = "container" align="center">
-			<br/><br/><br/>
-			<h1><b>Sistema Gestão de Transporte de Medicamentos - Zambézia</b></h1>
-				<br/><br/><br/>
+		
+			<div class="container">
 				
-				<div class="alert alert-warning" role="alert">
-				  Sessão expirada, entre novamente para acessar o conteudo!
-				</div>
 				
-			<h2>Por favor, faça login!</h2><p>
-			
-				<form method="post"  class="form-inline align-middle" action="login">
-				
-				  <div class="form-group">
-				    <label for="usuario"></label><br>
-				    <input type="text" class="form-control" name="usuario" placeholder="Usuário" required>
-				  </div><p>
-				  
-				  <div class="form-group">
-				    <label for="pwd"></label><br>
-				    <input type="password" class="form-control" name="senha" placeholder="Senha" required>
-				  </div><p>
-				  
-				  <div class="checkbox">
-				    <label><input type="checkbox"> Lembrar me</label>
-				  
-				  </div><p>
-				   <button type="reset" class="btn btn-warning">Limpar</button>
-				  <button type="submit" class="btn btn-success">Entrar</button>
+				    <h5>Sua sessão expirou, entre novamante para acessar o conteúdo!</h5>
 				 
-			
-		</form>
 				
-	</div>
-		<dir align="center" class="container";>
-			<footer class="footer navbar-fixed-bottom">
-			© 2021 Copyright - DPMZ
-		</footer>
-</dir>
-	</body>
+			    
+			    <main class="form-signin">
+				  <form method="post" action="login">
+				    
+				    <h1 class="h3 mb-3 fw-normal">Por favor, faça login!</h1>
+				    
+				    
+				    <div class="form-floating">
+				      <input type="text" class="form-control" id="floatingInput" name="usuario"  required placeholder="Usuário">
+				      <label for="floatingInput">Usuário</label>
+				    </div>
+				    <div class="form-floating">
+				      <input type="password" class="form-control" id="floatingPassword" name="senha" required placeholder="Senha">
+				      <label for="floatingPassword">Senha</label>
+				    </div>
+						
+						Esqueceu os dados de acesso?<a href="#"> Clique aqui.</a>
+						
+				    <div class="checkbox mb-3">
+				      <label>
+				        <input type="checkbox" value="remember-me"> Lembrar me
+				      </label>
+				    </div>
+				    <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+				 </form>
+				</main>
+			  </div>  
+	
+	<dir align="center" class="container";>
+		<footer class="footer navbar-fixed-bottom"> © 2021 Copyright - DPMZ </footer>
+	</dir>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	
+</body>
 </html>

@@ -147,6 +147,7 @@
 				<table class="table table-sm table-hover">
 				  <thead class="thead-dark">
 				    <tr>
+				      <th>Códico</th>
 				      <th>Descrição</th>
 				      <th>Email</th>
 				      <th>Telefone</th>
@@ -156,6 +157,7 @@
 				  <tbody>
 				  	  <c:forEach items="${listaDepositos}" var="deposito">
 					    <tr>
+					      <th>${deposito.id_deposito}</th>
 					      <th>${deposito.descricao}</th>
 					      <th>${deposito.email}</th>   
 					      <th>${deposito.telefone}</th>

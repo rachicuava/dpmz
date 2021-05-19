@@ -27,8 +27,8 @@ public class DepositoService {
 			pstmt.setString(3, deposito.getRua());
 			pstmt.setString(4, deposito.getEmail());
 			pstmt.setString(5, deposito.getTelefone());
-			pstmt.setString(6, deposito.getLongitude());
-			pstmt.setString(7, deposito.getLatitude());
+			pstmt.setFloat(6, deposito.getLongitude());
+			pstmt.setFloat(7, deposito.getLatitude());
 					
 			pstmt.executeUpdate();
 			
@@ -58,8 +58,8 @@ public class DepositoService {
 						pstmt.setString(3, deposito.getRua());
 						pstmt.setString(4, deposito.getEmail());
 						pstmt.setString(5, deposito.getTelefone());
-						pstmt.setString(6, deposito.getLongitude());
-						pstmt.setString(7, deposito.getLatitude());
+						pstmt.setFloat(6, deposito.getLongitude());
+						pstmt.setFloat(7, deposito.getLatitude());
 											
 						pstmt.executeUpdate();
 						
@@ -94,8 +94,8 @@ public class DepositoService {
 					deposito.setRua(rs.getString("rua"));
 					deposito.setEmail(rs.getString("email"));
 					deposito.setTelefone(rs.getString("telefone"));
-					deposito.setLatitude(rs.getString("latitude"));
-					deposito.setLongitude(rs.getString("longitude"));
+					deposito.setLatitude(rs.getFloat("latitude"));
+					deposito.setLongitude(rs.getFloat("longitude"));
 										
 					listaDeDepositos.add(deposito);
 					
@@ -154,8 +154,8 @@ public class DepositoService {
 					deposito.setRua(rs.getString("rua"));
 					deposito.setEmail(rs.getString("email"));
 					deposito.setTelefone(rs.getString("telefone"));
-					deposito.setLatitude(rs.getString("latitude"));
-					deposito.setLongitude(rs.getString("longitude"));
+					deposito.setLatitude(rs.getFloat("latitude"));
+					deposito.setLongitude(rs.getFloat("longitude"));
 																					
 					rs.close();
 					statement.close();

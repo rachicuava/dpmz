@@ -14,18 +14,16 @@
     	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">    	   
 		<title>SGTM-DPSZ</title>
 		
-		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 		<script>
-			window.addEventListener( "pageshow", function ( event ) {
-			var historyTraversal = event.persisted ||
-			( typeof window.performance != "undefined" &&
-			window.performance.navigation.type === 2 );
-			if ( historyTraversal ) {
-			window.location.reload();
-			}
-			}); 
-		</script>
-			
+				window.addEventListener( "pageshow", function ( event ) {
+				var historyTraversal = event.persisted ||
+				( typeof window.performance != "undefined" &&
+				window.performance.navigation.type === 2 );
+				if ( historyTraversal ) {
+				window.location.reload();
+				}
+				}); 
+			</script>
 			
 				<%
 				String usuario = null;
@@ -42,34 +40,8 @@
 					response.sendRedirect("naoLogado.html");
 					}
 				%>
-				
-				
-		    <style type="text/css">
-		      /* Set the size of the div element that contains the map */
-		      #map {
-		        height: 400px;
-		        /* The height is 400 pixels */
-		        width: 100%;
-		        /* The width is the width of the web page */
-		      }
-		    </style>
-		    <script>
-		      // Initialize and add the map
-		      function initMap() {
-		        // The location of Uluru
-		        const uluru = { lat:${deposito.latitude}, lng:${deposito.longitude}};
-		        // The map, centered at Uluru
-		        const map = new google.maps.Map(document.getElementById("map"), {
-		          zoom: 10,
-		          center: uluru,
-		        });
-		        // The marker, positioned at Uluru
-		        const marker = new google.maps.Marker({
-		          position: uluru,
-		          map: map,
-		        });
-		      }
-		    </script>
+		
+		
 	</head>
 	
 	<body>
@@ -146,14 +118,68 @@
 		        </div>
 		    </div>
 	      
-			<div id="map"></div>
+			<div class="container">
+				<h2><b>Detalhes da encomenda: </b>${encomenda.descricao}</h2>
+				
+				<br>
+			<div>  
+		        <a class="btn btn-outline-dark" href="encomendaListar" role="button">
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+					  <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
+					</svg>
+					Voltar				
+				</a>
+			</div>  
 			
-    
-	    <script
-	      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVNDmodh2vlQ99saVvqwSOjk8eYOfnk8M&callback=initMap&libraries=&v=weekly"
-	      async
-	    ></script>
-	    		
+			<br>
+			
+			<div> 
+				<table border="0">
+						<tr>
+							<th><label for="Id_Deposito">Código:</label></th>
+							<td><input type="text" name="id_encomenda" readonly="readonly" class="form-control" value="${encomenda.id_encomenda}"></td>
+						</tr>
+						<tr>
+							<th><label for="Descricao">Descrição:</label></th>
+							<td><input type="text" name="descricao" readonly="readonly" class="form-control" value="${encomenda.descricao}"></td>
+						</tr>
+						<tr>
+							<th><label for="CriadoPor">Criado por:</label></th>
+							<td><input type="text" name="criadoPor" readonly="readonly" class="form-control" value="${encomenda.criadoPor}"></td>
+						</tr>
+						<tr>
+							<th><label for="criadoEm">Criado em:</label></th>
+							<td><input type="text" name="data" pattern="dd/MM/yyyy" readonly="readonly" class="form-control" value="${encomenda.data}"></td>
+						</tr>
+						<tr>
+							<th><label for="TransportadoPor">Transportado por:</label></th>
+							<td><input type="text" name="transportadoPor" readonly="readonly" class="form-control" value="${encomenda.transportadoPor}"></td>
+						</tr>
+						<tr>
+							<th><label for="Status">Entrega:</label></th>
+							<td><input type="text" name="status" readonly="readonly" class="form-control" value="${encomenda.status}"></td>
+						</tr>
+						<tr>
+							<th><label for="EntregueEm">Entregue em:</label></th>
+							<td><input type="text" name="dataEntrega" pattern="dd/MM/yyyy"  readonly="readonly" class="form-control" value="${encomenda.dataEntrega}"></td>
+						</tr>
+						<tr>
+							<th><label for="Estado">Estado da encomenda:</label></th>
+							<td><input type="text" name="comentario" readonly="readonly" class="form-control" value="${encomenda.comentario}"></td>
+						</tr>
+						
+					</table>
+				</div> 
+			</div> 
+	
+		
+		
+		
+		
+			
+		
+		
+		
 	
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

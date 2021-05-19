@@ -136,7 +136,7 @@ public class ViagemService {
 			try {
 				Statement statement = connection.createStatement();
 				statement.execute(
-						"SELECT vg.id_viagem, vg.descricao, vg.origem, vg.destino, vg.data, v.id_veiculo, v.modelo, v.fabricante, v.ano_fabrico, v.tipo, v.capacidade, v.matricula, m.id_motorista, m.nome, m.apelido FROM sgtm_dpmz.viagem vg INNER JOIN sgtm_dpmz.veiculo v ON vg.veiculo_id_veiculo = v.id_veiculo INNER JOIN sgtm_dpmz.motorista m ON vg.motorista_id_motorista = m.id_motorista WHERE vg.data  BETWEEN '"+inicio+"' AND '"+fim+"'ORDER BY vg.data ASC");
+						"SELECT vg.id_viagem, vg.descricao, vg.origem, vg.destino, vg.data, v.id_veiculo, v.modelo, v.fabricante, v.ano_fabrico, v.tipo, v.capacidade, v.matricula, m.id_motorista, m.nome, m.apelido FROM sgtm_dpmz.viagem vg INNER JOIN sgtm_dpmz.veiculo v ON vg.veiculo_id_veiculo = v.id_veiculo INNER JOIN sgtm_dpmz.motorista m ON vg.motorista_id_motorista = m.id_motorista WHERE  vg.data  BETWEEN '"+inicio+"' AND '"+fim+"'ORDER BY vg.data ASC");
 
 				ResultSet rs = statement.getResultSet();
 
@@ -180,6 +180,60 @@ public class ViagemService {
 			return null;
 
 		}
+		
+		// ------------------------------------------------------------------------------------------------------------------------------
+				// MÉTODO PARA LISTAR TODOS VIAGENS NA BASE DE DADOS!
+				public List<Viagem> listarViagemPorMotoristaDestino(String motorista1, String destino) {
+					List<Viagem> listaDeViagem = new ArrayList<>();
+					Connection connection = ConnectionFactory.getConnection();
+
+					try {
+						Statement statement = connection.createStatement();
+						statement.execute(
+								"SELECT vg.id_viagem, vg.descricao, vg.origem, vg.destino, vg.data, v.id_veiculo, v.modelo, v.fabricante, v.ano_fabrico, v.tipo, v.capacidade, v.matricula, m.id_motorista, m.nome, m.apelido FROM sgtm_dpmz.viagem vg INNER JOIN sgtm_dpmz.veiculo v ON vg.veiculo_id_veiculo = v.id_veiculo INNER JOIN sgtm_dpmz.motorista m ON vg.motorista_id_motorista = m.id_motorista WHERE  m.nome LIKE '%"+motorista1+"%' AND vg.destino  LIKE '%"+destino+"%' ORDER BY vg.data ASC");
+
+						ResultSet rs = statement.getResultSet();
+
+						while (rs.next()) {
+
+							Veiculo veiculo = new Veiculo();
+							veiculo.setId_veiculo(rs.getInt("v.id_veiculo"));
+							veiculo.setModelo(rs.getString("v.modelo"));
+							veiculo.setFabricante(rs.getString("v.fabricante"));
+							veiculo.setAno_fabrico(rs.getInt("v.ano_fabrico"));
+							veiculo.setTipo(rs.getString("tipo"));
+							veiculo.setCapacidade(rs.getString("v.capacidade"));
+							veiculo.setMatricula(rs.getString("v.matricula"));
+							
+							Motorista motorista = new Motorista();
+							motorista.setId_motorista(rs.getInt("id_motorista"));
+							motorista.setNome(rs.getString("nome"));
+							motorista.setApelido(rs.getString("apelido"));
+
+							Viagem viagem = new Viagem();
+							viagem.setId_viagem(rs.getInt("vg.id_viagem"));
+							viagem.setDescricao(rs.getString("vg.descricao"));
+							viagem.setData(rs.getDate("vg.data"));
+							viagem.setOrigem(rs.getString("vg.origem"));
+							viagem.setDestino(rs.getString("vg.destino"));
+							viagem.setVeiculo(veiculo);
+							viagem.setMotorista(motorista);
+
+							listaDeViagem.add(viagem);
+						}
+
+						rs.close();
+						statement.close();
+						connection.close();
+
+						return listaDeViagem;
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					return null;
+
+				}
 
 	// ------------------------------------------------------------------------------------------------------------------------------
 	// MÉTODO PARA EXCLUIR TODOS ENCOMENDAS NA BASE DE DADOS!

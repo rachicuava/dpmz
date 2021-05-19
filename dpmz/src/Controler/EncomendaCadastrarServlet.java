@@ -37,6 +37,8 @@ public class EncomendaCadastrarServlet extends HttpServlet {
 	
 		veiculo.setId_veiculo(Integer.parseInt(request.getParameter("id_veiculo")));
 		encomenda.setDescricao(request.getParameter("descricao"));
+		encomenda.setCriadoPor(request.getParameter("criadoPor"));
+		encomenda.setTransportadoPor(request.getParameter("transportadoPor"));
 		encomenda.setVeiculo(veiculo);
 		
 		encomendaService.adicionarEncomenda(encomenda);

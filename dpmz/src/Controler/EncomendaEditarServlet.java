@@ -42,6 +42,8 @@ public class EncomendaEditarServlet extends HttpServlet {
 		veiculo.setId_veiculo(Integer.parseInt(request.getParameter("id_veiculo")));
 		encomenda.setId_encomenda(Integer.valueOf(request.getParameter("id_encomenda")));
 		encomenda.setDescricao(request.getParameter("descricao"));
+		encomenda.setCriadoPor(request.getParameter("criadoPor"));
+		encomenda.setTransportadoPor(request.getParameter("transportadoPor"));
 		encomenda.setVeiculo(veiculo);
 		
 		encomendaService.actualizarEncomenda(encomenda);;

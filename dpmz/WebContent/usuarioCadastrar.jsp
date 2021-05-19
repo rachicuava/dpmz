@@ -137,9 +137,23 @@
 						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="nivel_acesso">
 							        <option selected>Selecione um nível de acesso</option>
 							        <option value="Gestor Provincial">Gestor Provincial</option>
-							        <option value="Gestor Distrital">Gestor Pistrital</option>
+							        <option value="Gestor Distrital">Gestor Distrital</option>
 							        <option value="Motorista">Motorista</option>
 							    </select>
+						    </div>
+						</div>
+						<br>
+						<div class="row">
+						    <div class="col">
+						      <input type="text" name="telefone" class="form-control" required placeholder="Telefone">
+						    </div>
+						    
+						    <div class="col">
+						      <input type="email" name="email" class="form-control" required placeholder="Email">
+						    </div>
+						    
+						    <div class="col">
+						         
 						    </div>
 						</div>
 							
@@ -167,15 +181,6 @@
 			  </form>
 			</div>
 
-		
-		
-		
-		
-		
-			
-		
-		
-		
 	
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

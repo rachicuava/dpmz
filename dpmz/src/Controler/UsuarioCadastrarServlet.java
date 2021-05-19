@@ -31,9 +31,12 @@ public class UsuarioCadastrarServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		user.setUsuario(request.getParameter("usuario"));
 		user.setSenha(request.getParameter("senha"));
 		user.setNivel_acesso(request.getParameter("nivel_acesso"));
+		user.setTelefone(request.getParameter("telefone"));
+		user.setEmail(request.getParameter("email"));
 		
 		userService.adicionarUsuario(user);
 		response.sendRedirect("usuarioListar");

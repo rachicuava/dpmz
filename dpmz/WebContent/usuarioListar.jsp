@@ -137,16 +137,22 @@
 				<table class="table table-sm table-hover">
 				  <thead class="thead-dark">
 				    <tr>
+				      <th>Código</th>
 				      <th>Nome do usuário</th>
 				      <th>Nível de acesso</th>
+				      <th>Telefone</th>
+				      <th>Email</th>
 				      <th align="center">Acções</th>
 				    </tr>
 				  </thead>
 				  <tbody>
 				  	  <c:forEach items="${listaUsuarios}" var="usuario">
 					    <tr>
+					      <th>${usuario.id_usuario}</th>
 					      <th>${usuario.usuario}</th>
-					      <th>${usuario.nivel_acesso}</th>   
+					      <th>${usuario.nivel_acesso}</th>
+					      <th>${usuario.telefone}</th>
+					      <th>${usuario.email}</th>  
    					      <td>
 					      	
 							

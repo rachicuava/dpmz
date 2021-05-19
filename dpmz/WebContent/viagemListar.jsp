@@ -131,14 +131,14 @@
 				        <div class="row">
 						    <div class="col">
 						      <label for="dataInicio"><b>Data início</b></label>
-						      <input type="date" name="inicio"  data-date-format="dd/MM/yyyy" required class="form-control" placeholder="dd-MM-yyyy">
+						      <input type="date" name="inicio"  data-date-format="dd/MM/yyyy"  class="form-control">
 						    </div>
 						    
 						    <div class="col">
 						      <label for="dataFim"><b>Data fim</b></label>
-						      <input type="date" name="fim"  data-date-format="dd/MM/yyyy" required class="form-control" placeholder="dd-MM-yyyy">
+						      <input type="date" name="fim"  data-date-format="dd/MM/yyyy" class="form-control">
 						    </div>
-						    						    					    
+						     						    					    
 						    <div class="col">
 						      <label for="pesquisar"></label>
 						      <button type="submit" class="btn btn-outline-dark" >
@@ -156,7 +156,35 @@
 						</div>
 										
 			  </form>
-			  
+			  <form action="viagemListarMotoristaDestino" method="get">
+					
+					 <br>
+				        <div class="row">
+						    
+						    <div class="col">
+						      <input type="text" name="motorista" class="form-control" placeholder="Motorista">
+						    </div>
+						      
+						    <div class="col">
+						      <input type="text" name="destino" class="form-control" placeholder="Destino ">
+						    </div>
+						    <div class="col">
+						      <label for="pesquisar"></label>
+						      <button type="submit" class="btn btn-outline-dark" >
+					       		<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+								  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+								</svg>
+					       	  Pesquisar
+					          </button>
+					         </div>
+					         
+					         <div class="col">
+						    
+						    </div>
+						   		    
+						</div>
+										
+			  </form>
 				 <hr>
 				
 				<br>
@@ -166,7 +194,12 @@
 					</svg>
 					Nova Viagem			
 				</a>
-				
+				<a class="btn btn-outline-dark" style="text-align: right;" href="#" role="button">
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-bar-down" viewBox="0 0 16 16">
+					  <path fill-rule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z"/>
+					</svg>
+					Baixar em PDF			
+				</a>
 				<br>
 				<br>
 				<h5>Total de viagens  feitas: ${listaViagens.size()}.</h5>
@@ -174,6 +207,7 @@
 				<table class="table table-sm table-hover">
 				  <thead class="thead-dark">
 				    <tr>
+				      <th>Código</th>
 				      <th>Descrição</th>
 				      <th>Origem</th>
 				      <th>Destino</th>
@@ -186,6 +220,7 @@
 				  <tbody>
 				  	  <c:forEach items="${listaViagens}" var="viagem">
 					    <tr>
+					      <th><c:out value="${viagem.id_viagem}"/></th>
 					      <th><c:out value="${viagem.descricao}"/></th>
 					      <th><c:out value="${viagem.origem}"/></th>
 					      <th><c:out value="${viagem.destino}"/></th>

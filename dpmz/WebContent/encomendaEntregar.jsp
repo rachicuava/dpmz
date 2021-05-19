@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -11,21 +10,20 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     	
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">    	   
+    	<link rel="shortcut icon" type="image/x-icon" href="imagens/favicon.ico">
+    	    	   
 		<title>SGTM-DPSZ</title>
 		
-		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 		<script>
-			window.addEventListener( "pageshow", function ( event ) {
-			var historyTraversal = event.persisted ||
-			( typeof window.performance != "undefined" &&
-			window.performance.navigation.type === 2 );
-			if ( historyTraversal ) {
-			window.location.reload();
-			}
-			}); 
-		</script>
-			
+				window.addEventListener( "pageshow", function ( event ) {
+				var historyTraversal = event.persisted ||
+				( typeof window.performance != "undefined" &&
+				window.performance.navigation.type === 2 );
+				if ( historyTraversal ) {
+				window.location.reload();
+				}
+				}); 
+			</script>
 			
 				<%
 				String usuario = null;
@@ -42,34 +40,8 @@
 					response.sendRedirect("naoLogado.html");
 					}
 				%>
-				
-				
-		    <style type="text/css">
-		      /* Set the size of the div element that contains the map */
-		      #map {
-		        height: 400px;
-		        /* The height is 400 pixels */
-		        width: 100%;
-		        /* The width is the width of the web page */
-		      }
-		    </style>
-		    <script>
-		      // Initialize and add the map
-		      function initMap() {
-		        // The location of Uluru
-		        const uluru = { lat:${deposito.latitude}, lng:${deposito.longitude}};
-		        // The map, centered at Uluru
-		        const map = new google.maps.Map(document.getElementById("map"), {
-		          zoom: 10,
-		          center: uluru,
-		        });
-		        // The marker, positioned at Uluru
-		        const marker = new google.maps.Marker({
-		          position: uluru,
-		          map: map,
-		        });
-		      }
-		    </script>
+		
+		
 	</head>
 	
 	<body>
@@ -146,14 +118,76 @@
 		        </div>
 		    </div>
 	      
-			<div id="map"></div>
+			<div class="container">
+				<h2><b>Confirmação de entrega de Encomenda</b></h2>
+				
+					<br>
+					
+					<form action="historicoEncomendaCadastar" method="post">
+							      
+				        <div class="row">
+				        	<div class="col">
+				        	  <label for="idEncomenda">Código da encomenda</label>
+						      <input type="text" name="id_encomenda" class="form-control" readonly="readonly" value="${encomenda.id_encomenda}">
+						    </div>
+						    
+						    <div class="col">
+						    	 <label for="veiculo">Selecione o status</label>
+						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="status">
+							        <option selected></option>
+							       	<option value="Entregue">Entregar</option>
+ 						   		 </select>
+						    </div>
+						    
+				        	<div class="col">
+				        	</div>
+				        	<div class="col">
+				        	</div>
+						 </div>
+						 
+						 <div class="row">
+						    <div class="col">
+						    	 <label for="veiculo">Comentário sobre o estado da encomenda no acto da entrega:</label>
+						         <textarea required class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+						    </div>
+						    
+ 						</div>
+							
+							
+						
+				        <br>
+				        <hr>
+				      <div>
+				        
+						
+						<button type="reset" class="btn btn-outline-warning">
+				        	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
+							  <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1L1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
+							  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+							</svg>
+							Limpar
+				        </button>
+				        
+				        <button type="submit" class="btn btn-outline-success">
+				        	<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-save2" viewBox="0 0 16 16">
+							  <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v4.5h2a.5.5 0 0 1 .354.854l-2.5 2.5a.5.5 0 0 1-.708 0l-2.5-2.5A.5.5 0 0 1 5.5 6.5h2V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
+							</svg>
+				        	Gravar
+				        </button>
+				      </div>
+				      					
+				  </form>
+				</div>
+
+		
+		
+		
+		
+		
 			
-    
-	    <script
-	      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVNDmodh2vlQ99saVvqwSOjk8eYOfnk8M&callback=initMap&libraries=&v=weekly"
-	      async
-	    ></script>
-	    		
+		
+		
+		
 	
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

@@ -1,5 +1,7 @@
 package Model;
 
+import java.io.InputStream;
+
 
 public class Veiculo {
 	
@@ -10,7 +12,7 @@ public class Veiculo {
 	private String capacidade;
 	private String matricula;
 	private int ano_fabrico;
-	
+	private InputStream imagem;
 	
 	
 	public Veiculo() {
@@ -59,5 +61,12 @@ public class Veiculo {
 	public void setAno_fabrico(int ano_fabrico) {
 		this.ano_fabrico = ano_fabrico;
 	}
+	public InputStream getImagem() {
+		return imagem;
+	}
+	public void setImagem(InputStream imagem) {
+		this.imagem = imagem;
+	}
+	
 		
 }

@@ -122,7 +122,7 @@
 				
 					<br>
 					
-					<form action="veiculoCadastrar" method="post">
+					<form action="veiculoCadastrar" method="post" enctype="multipart/form-data">
 							      
 				        <div class="row">
 						    <div class="col">
@@ -150,6 +150,18 @@
 						    
 						    <div class="col">
 						     <input type="text" name="ano_fabrico" class="form-control" required placeholder="Ano de fabrico">
+						    </div>
+						</div>
+						<br>
+						<div class="row">
+				        	<div class="col">
+						      <input type="file" name="imagem" class="form-control" required>
+						    </div>
+						    <div class="col">
+						     
+						    </div>
+						    <div class="col">
+						     
 						    </div>
 						</div>
 						

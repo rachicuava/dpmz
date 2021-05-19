@@ -131,17 +131,71 @@
 						      <input type="text" name="descricao" class="form-control" required placeholder="Descrição ">
 						    </div>
 						    
-						    <div class="col">
-				        	  <label for="origem">Origem</label>
-						      <input type="text" name="origem" class="form-control" required placeholder="Origem">
+						     <div class="col">
+						    	 <label for="data de nascimeto">Selecione a origem</label>
+						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="origem">
+							        <option selected></option>
+							       		 			        
+							        <%@ page import="
+							        	DTO.*,
+							        	DAO.*,
+							        	Model.*,
+							        	java.util.*,
+							        	java.sql.*
+							        "%>
+							        <%
+							        try{
+							        	 Connection connection = ConnectionFactory.getConnection();
+							        	 Statement statement = connection.createStatement();
+											statement.execute("SELECT * FROM deposito");
+											
+											ResultSet rs = statement.getResultSet();
+											while (rs.next()){
+												Deposito deposito = new Deposito();
+												out.println("<option value=\""+rs.getString("descricao")+"\">"+rs.getString("descricao")+"</option>");
+											}
+								        }catch(Exception e){
+							        	e.printStackTrace();
+							        }
+							       
+							        
+							        %>
+							    </select>
 						    </div>
 						    
 						    <div class="col">
-				        	  <label for="destino">Destino</label>
-						      <input type="text" name="destino" class="form-control" required placeholder="Destino">
+						    	 <label for="data de nascimeto">Selecione o destino</label>
+						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="destino">
+							        <option selected></option>
+							       		 			        
+							        <%@ page import="
+							        	DTO.*,
+							        	DAO.*,
+							        	Model.*,
+							        	java.util.*,
+							        	java.sql.*
+							        "%>
+							        <%
+							        try{
+							        	 Connection connection = ConnectionFactory.getConnection();
+							        	 Statement statement = connection.createStatement();
+											statement.execute("SELECT * FROM deposito");
+											
+											ResultSet rs = statement.getResultSet();
+											while (rs.next()){
+												Deposito deposito = new Deposito();
+												out.println("<option value=\""+rs.getString("descricao")+"\">"+rs.getString("descricao")+"</option>");
+											}
+								        }catch(Exception e){
+							        	e.printStackTrace();
+							        }
+							       
+							        
+							        %>
+							    </select>
 						    </div>
  						</div>
- 						
+ 						<br>
  						<div class="row">
 				        	
 						    <div class="col">

@@ -133,6 +133,41 @@
 						    
 						    <div class="col">
 						    	
+						    	 <label for="veiculo">Aviado por</label>
+						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="criadoPor">
+							        <option selected></option>
+							       		 			        
+							        <%@ page import="
+							        	DTO.*,
+							        	DAO.*,
+							        	Model.*,
+							        	java.util.*,
+							        	java.sql.*
+							        "%>
+							        <%
+							        try{
+							        	 Connection connection = ConnectionFactory.getConnection();
+							        	 Statement statement = connection.createStatement();
+											statement.execute("SELECT * FROM funcionario ORDER BY nome ASC");
+											
+											ResultSet rs = statement.getResultSet();
+											while (rs.next()){
+												Funcionario funcionario = new Funcionario();
+												out.println("<option value=\""+rs.getString("nome")+"\">"+rs.getString("nome")+"</option>");
+											}
+								        }catch(Exception e){
+							        	e.printStackTrace();
+							        }
+							       
+							        
+							        %>
+							       
+							        
+							    </select>
+						    </div>
+						    
+						    <div class="col">
+						    	
 						    	 <label for="veiculo">Selecione o veículo</label>
 						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="id_veiculo">
 							        <option selected></option>
@@ -161,12 +196,54 @@
 							       
 							        
 							        %>
+							     </select>
+						    </div>
+						    
+ 						</div>
+ 						<br>
+ 					<div class="row">	
+ 						<div class="col">
+						    	
+						    	 <label for="veiculo">Transportado por</label>
+						         <select  type="text" class="custom-select mr-sm-2" required id="inlineFormCustomSelect" name="transportadoPor">
+							        <option selected></option>
+							       		 			        
+							        <%@ page import="
+							        	DTO.*,
+							        	DAO.*,
+							        	Model.*,
+							        	java.util.*,
+							        	java.sql.*
+							        "%>
+							        <%
+							        try{
+							        	 Connection connection = ConnectionFactory.getConnection();
+							        	 Statement statement = connection.createStatement();
+											statement.execute("SELECT * FROM motorista ORDER BY nome ASC");
+											
+											ResultSet rs = statement.getResultSet();
+											while (rs.next()){
+												Motorista motorista = new Motorista();
+												out.println("<option value=\""+rs.getString("nome")+"\">"+rs.getString("nome")+"</option>");
+											}
+								        }catch(Exception e){
+							        	e.printStackTrace();
+							        }
+							       
+							        
+							        %>
 							       
 							        
 							    </select>
 						    </div>
-						    
- 						</div>
+						    <div class="col">
+				        	  <label for="data de nascimeto">Carregue a guia de remessa</label>
+						      <input type="file" name="" class="form-control">
+						    </div>
+						    <div class="col">
+				        	  
+						    </div>
+						 </div>
 							
 							
 						

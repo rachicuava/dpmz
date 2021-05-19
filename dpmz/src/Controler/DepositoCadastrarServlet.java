@@ -1,11 +1,14 @@
 package Controler;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 import DTO.DepositoService;
 import Model.Deposito;
@@ -30,8 +33,8 @@ public class DepositoCadastrarServlet extends HttpServlet {
 		deposito.setRua(request.getParameter("rua"));
 		deposito.setEmail(request.getParameter("email"));
 		deposito.setTelefone(request.getParameter("telefone"));
-		deposito.setLongitude(request.getParameter("longitude"));
-		deposito.setLatitude(request.getParameter("latitude"));
+		deposito.setLongitude(Float.valueOf(request.getParameter("longitude")));
+		deposito.setLatitude(Float.valueOf(request.getParameter("latitude")));
 		
 		depositoService.adicionarDeposito(deposito);
 		response.sendRedirect("depositoListar");
